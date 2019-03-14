@@ -43,7 +43,7 @@ class Eligibility extends Component {
     render() {    
         return (
             <Step
-                stepNum="1/2"
+                stepNum="1/5"
                 title="Enrollment is simple, let’s start with a few eligibility questions."
                 subtitle="Please, carefully review and answer each question below."
             >
@@ -55,10 +55,10 @@ class Eligibility extends Component {
                     onSubmit={this.handleFormSubmit.bind(this)}
                     onError={log("errors")}>
 
-                    <div className="flex justify-center text-white">
-                        <Link to="/applicant-info" className="button button-xlg mt-lg" onClick={() => this.props.transitionToStep("Information")}>
+                    <div className="flex justify-end text-white">
+                        <Link to="/applicants" className="button button-xlg mt-lg" onClick={() => this.props.transitionToStep("Information")}>
                             <span className="mr-sm" style={{ color: 'var(--pm-green200)' }}>Next</span>
-                            Applicant Information
+                            Applicant Info
                         </Link>
                     </div>
                 </Form>

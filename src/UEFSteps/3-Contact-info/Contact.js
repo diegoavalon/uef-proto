@@ -6,11 +6,11 @@ import Form from '../../Form';
 import { processForm, log } from '../../utilities';
 import { widgets } from '../../widgets';
 
-import { originalApplicantSchema, originalApplicantUISchema } from './config';
+import { originalContactSchema, originalContactUISchema } from './config';
 
-const initialState = processForm(originalApplicantSchema, originalApplicantUISchema, originalApplicantSchema, originalApplicantUISchema);
+const initialState = processForm(originalContactSchema, originalContactUISchema, originalContactSchema, originalContactUISchema);
 
-class Applicant extends Component {
+class Contact extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ class Applicant extends Component {
         const uiSchema = { ...this.state.uiSchema };
         const { formData } = data;
     
-        const newState = processForm(originalApplicantSchema, originalApplicantUISchema, schema, uiSchema, formData);
+        const newState = processForm(originalContactSchema, originalContactUISchema, schema, uiSchema, formData);
     
         this.setState(newState);
         console.log(formData);
@@ -43,9 +43,9 @@ class Applicant extends Component {
     render() {    
         return (
             <Step
-                stepNum="2/5" 
-                title="Who will be on this policy?"
-                subtitle="We'll walk you through everything you need to have your family enrolled under this plan."
+                stepNum="3/5" 
+                title="How can we contact you?"
+                subtitle="We make sure you're getting the right plan, we'll let you know if there's anything better."
             >
                 <Form schema={this.state.schema}
                     uiSchema={this.state.uiSchema}
@@ -56,12 +56,12 @@ class Applicant extends Component {
                     onError={log("errors")}>
 
                     <div className="flex justify-between text-white mt-neg-xxl">
-                        <Link to="/eligibility" className="button button-xlg mt-lg" onClick={() => this.props.transitionToStep("Information")}>
+                        <Link to="/applicants" className="button button-xlg" onClick={() => this.props.transitionToStep("Information")}>
                             Back
                         </Link>
-                        <Link to="/contact" className="button button-xlg mt-lg" onClick={() => this.props.transitionToStep("Information")}>
+                        <Link to="/payment" className="button button-xlg" onClick={() => this.props.transitionToStep("Information")}>
                             <span className="mr-sm" style={{ color: 'var(--pm-green200)' }}>Next</span>
-                            Contact Info
+                            Payments
                         </Link>
                     </div>
                 </Form>
@@ -70,4 +70,4 @@ class Applicant extends Component {
     }
 }
 
-export default Applicant;
+export default Contact;

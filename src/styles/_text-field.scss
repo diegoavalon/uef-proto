@@ -22,19 +22,18 @@ $width: 550px; // Change Me
             ~ label {
                 top: 0;
                 
-                color: var(--pm-grey);
+                color: var(--pm-teal300);
             }
         }
         &:focus {
             outline: none;
-            // border-bottom-color: $secondary-color;
             ~ label {
                 top: 0;
                 
                 color: var(--pm-teal500);
             }
           
-            ~ .bar:before {
+            ~ .eh-text__bar:before {
                 transform: translateX(0);
             }
         }
