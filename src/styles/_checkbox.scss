@@ -1,0 +1,67 @@
+.eh-check-group {
+    display: inline-flex;
+    cursor: pointer;
+}
+.eh-check-group label {
+    cursor: pointer;
+}
+.eh-check__label {
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
+.eh-check__label svg {
+  position: relative;
+  z-index: 1;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #cccccc;
+  stroke-width: 3;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+}
+.eh-check__label svg path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+  transition: all 0.3s linear;
+}
+.eh-check__label svg polyline {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 66;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+}
+.eh-check__label:hover svg {
+  stroke: #0099d6;
+}
+.eh-check__label {
+    border-radius: 4px;
+    background: #eeeeee;
+    transition: background .3s;
+}
+.eh-check__input:checked + .eh-check__label {
+    background: #f8f8f8;
+}
+.eh-check__input:checked + .eh-check__label svg {
+  stroke: #0099d6;
+  opacity: 1;
+  transition: all 0.2s linear;
+
+}
+.eh-check__input:checked + .eh-check__label svg path {
+  stroke-dashoffset: 60;
+  transition: all 0.3s linear;
+}
+.eh-check__input:checked + .eh-check__label svg polyline {
+  stroke-dashoffset: 42;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+}

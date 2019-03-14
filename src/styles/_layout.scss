@@ -1,0 +1,81 @@
+// Modal
+.modal {
+    backface-visibility: hidden;
+    position: fixed;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--pm-white);
+    background-color: #ffffff;
+    overflow: auto;
+    transition: opacity .5s ease-in-out;
+    z-index: 100;
+
+    color: var(--pm-bg-dark);
+    &__header {
+        padding: 12px;
+        background: var(--pm-green700);
+        background: var(--pm-green700);
+        background: linear-gradient(to left, var(--pm-green700), var(--pm-green300)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        border-bottom: 1px solid var(--pm-green700);
+        svg {
+            width: 92px;
+            height: auto;
+        }
+        @media screen and (min-width: 960px) {
+            padding: 16px;
+            svg {
+                width: 112px;
+                height: auto;
+            }
+        }
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    .button {
+        background: var(--pm-bg-dark);
+    }
+}
+
+// App
+.eh-header,
+.rc-footer {
+    background: transparent;
+}
+
+// Form
+.segment {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    /* opacity: 0; */
+    transition: opacity 1s;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+.field-string > label {
+    position: relative;
+    font-size: 24px;
+    margin-bottom: 36px;
+}
+// .field-string > label:before {
+//     content: '';
+//     position: absolute;
+//     top: 11px;
+//     right: 100%;
+//     width: 60px;
+//     height: 2px;
+//     background: #22292f;
+//     transform: translateX(-28px);
+// }
+.form-group {
+    margin-bottom: 80px;
+}
+.toggle-fancy__wrapper {
+    margin: 0;
+    padding: 40px 0;
+    border-bottom: 1px solid #cccccc;
+}

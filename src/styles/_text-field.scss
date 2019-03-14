@@ -1,0 +1,97 @@
+$secondary-color: var(--pm-grey);
+$main-color: #333;
+$secondary-color: #2196f3;
+$width: 550px; // Change Me
+
+.eh-text {
+    &__group {
+        width: 100%;
+        height: $width/5;
+        overflow: hidden;
+        position: relative;
+    }
+    &__input {
+        display: block;
+        width: 100%;
+        padding-top: $width/15;
+        border: none;
+        border-radius: 0; // For iOS
+        font-size: $width/18;
+        transition: .3s var(--cubic-bezier);
+        &:not(:placeholder-shown) {
+            ~ label {
+                top: 0;
+                
+                color: var(--pm-grey);
+            }
+        }
+        &:focus {
+            outline: none;
+            // border-bottom-color: $secondary-color;
+            ~ label {
+                top: 0;
+                
+                color: var(--pm-teal500);
+            }
+          
+            ~ .bar:before {
+                transform: translateX(0);
+            }
+        }
+      
+        // Modify Chrome's pale yellow background on auto-fill
+        &:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px var(--pm-white) inset;
+            -webkit-text-fill-color: var(--pm-bg-dark) !important;
+        }
+    }
+    &__label {
+        position: absolute;
+        top: $width/15;
+        color: var(--pm-bg-dark);
+        cursor: text;
+        pointer-events: none;
+        transition: .25s ease;
+    }
+    &__bar {
+        content: '';
+        background: var(--pm-grey);
+        width: 100%;
+        height: 2px;
+        transition: .3s var(--cubic-bezier);
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 150%;
+            background: var(--pm-teal500);
+            transform: translateX(-100%);
+            
+        }
+    }
+}
+
+// ::selection {background: rgba($secondary-color, .3);}
+
+.eh-text__group .eh-text__input::-webkit-input-placeholder {
+	opacity: 0;
+	transition: opacity .2s ease-out;
+}
+
+.eh-text__group .eh-text__input::-moz-placeholder {
+	opacity: 0;
+	transition: opacity .2s ease-out;
+}
+
+.eh-text__group .eh-text__input:focus::-webkit-input-placeholder {
+    color: var(--pm-bg-dark);
+	opacity: 0.2;
+	transition-delay: .2s;
+}
+
+.eh-text__group .eh-text__input:focus::-moz-placeholder {
+    color: var(--pm-bg-dark);
+    opacity: 0.2;
+	transition-delay: .2s;
+}
