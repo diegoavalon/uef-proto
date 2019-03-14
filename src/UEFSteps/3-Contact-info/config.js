@@ -17,11 +17,11 @@ export const originalContactSchema = {
             properties: {
                 primaryPhone: {
                     type: "string",
-                    title: "Primary applicant's phone"
+                    title: "Phone"
                 },
                 primaryEmail: {
                     type: "string",
-                    title: "Primary applicant's email"
+                    title: "Email"
                 },
                 spousePhone: {
                     type: "string",

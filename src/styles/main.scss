@@ -3,6 +3,7 @@
 
 @import "text-field";
 @import "checkbox";
+@import "toggle";
 @import "radio-button";
 @import "EhBanner";
 
@@ -18,4 +19,9 @@
     --pm-teal300: #88c9ce;
     --pm-teal500: #46b7b8;
     --pm-teal900: #456670;
+}
+
+html,
+body {
+    font-family: 'Source Sans Pro', sans-serif;
 }

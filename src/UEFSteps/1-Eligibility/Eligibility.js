@@ -35,7 +35,6 @@ class Eligibility extends Component {
     
     handleFormSubmit(data) {
         const { formData } = data;
-        debugger;
     
         console.log('This is the form info we will submit', formData);
     }
@@ -44,8 +43,8 @@ class Eligibility extends Component {
         return (
             <Step
                 stepNum="1/5"
-                title="Enrollment is simple, let’s start with a few eligibility questions."
-                subtitle="Please, carefully review and answer each question below."
+                title="Enrollment is simple."
+                subtitle="Let’s quickly see if you are eligible."
             >
                 <Form schema={this.state.schema}
                     uiSchema={this.state.uiSchema}

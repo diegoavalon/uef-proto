@@ -1,0 +1,164 @@
+.toggle-fancy {
+    border-bottom: 1px solid var(--pm-grey);
+    &__text-col label {
+        display: block;
+    }
+}
+.eh-toggle__group .eh-check__input,
+.toggle-fancy .eh-check__input {
+    position: absolute!important;
+    width: 1px!important;
+    height: 1px!important;
+    margin: -1px!important;
+    padding: 0!important;
+    overflow: hidden!important;
+    clip: rect(0,0,0,0)!important;
+    border: 0!important;
+}
+.eh-toggle__group {
+    display: inline-flex;
+    align-items: center;
+}
+.eh-toggle__description {
+    margin: 0 20px;
+}
+.eh-toggle {
+    user-select: none;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+.eh-toggle__inner {
+    border-radius: .1875rem;
+    background-color: #eeeeee;
+    box-shadow: inset 0 0 0 1px #eeeeee;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    display: inline-block;
+    height: 2.5rem;
+    min-width: 80px;
+    position: relative;
+    vertical-align: middle;
+    width: auto;
+
+    user-select: none;
+    cursor: pointer;
+}
+.eh-toggle__label {
+    font-smoothing: antialiased;
+    text-shadow: 0 0 1px transparent;
+    text-align: center;
+    user-select: none;
+    display: block;
+    line-height: 2.5625rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    visibility: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+.eh-toggle__label--checked {
+    padding-left: 1rem;
+    padding-right: 3.5rem;
+}
+.eh-toggle__label--unchecked {
+    padding-left: 3.5rem;
+    padding-right: 1rem;
+    color: #999999;
+    position: relative;
+    top: -40px;
+    visibility: visible;
+}
+.eh-toggle__handle {
+    border-radius: .1875rem;
+    user-select: none;
+    transition: all .15s ease-out;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px #eeeeee, 0 5px 5px 0 rgba(0,0,0,.08);
+    height: 2.5rem;
+    left: 0;
+    overflow: hidden;
+    padding: .4375rem;
+    position: absolute;
+    top: 0;
+    width: 2.5rem;
+    z-index: 1;
+}
+.eh-toggle__icon {
+    opacity: 0;
+    transition: all .15s ease-out;
+}
+
+.eh-check__input:checked + .eh-toggle__inner {
+    background-color: var(--pm-teal500);
+    box-shadow: none;
+    box-shadow: inset 0 2px 8px 0 rgba(0, 0, 0, .06);
+
+}
+.eh-check__input:checked + .eh-toggle__inner .eh-toggle__label {
+    color: #ffffff;
+    visibility: visible;
+}
+.eh-check__input:checked + .eh-toggle__inner .eh-toggle__handle {
+    box-shadow: 0 0 0 2px var(--pm-teal500), 0 5px 5px 0 rgba(0,0,0,.08);
+    left: 100%;
+    transform: translateX(-100%);
+}
+.eh-check__input:checked + .eh-toggle__inner .eh-toggle__icon {
+    opacity: 1;
+}
+.eh-check__input:checked + .eh-toggle__inner .eh-toggle__label--unchecked {
+    top: -40px;
+    visibility: hidden;
+}
+
+.eh-toggle.disabled * {
+    cursor: not-allowed !important;
+}
+.eh-toggle.disabled .eh-toggle__inner {
+    background: #f6f6f6 !important;
+}
+.eh-toggle.disabled .eh-toggle__label {
+    color: #cccccc !important;
+}
+.eh-toggle.disabled .eh-toggle__handle {
+    background: #f6f6f6;
+    box-shadow: 0 0 0 0.0625rem #cbd6e2, 0 5px 5px 0 rgba(0,0,0,.08);
+}
+.eh-toggle.disabled .eh-toggle__icon {
+    fill: #cccccc;
+    stroke: #f6f6f6;
+}
+.eh-toggle.disabled .eh-toggle__handle {
+    box-shadow: 0 0 0 0.0625rem #dbdada, 0 5px 5px 0 rgba(0,0,0,.08) !important;
+}
+
+.eh-toggle.sm .eh-toggle__inner {
+    height: 32px;
+    width: 64px;
+    min-width: 0;
+}
+.eh-toggle.sm .eh-toggle__label,
+.eh-toggle.xs .eh-toggle__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.eh-toggle.sm .eh-toggle__handle {
+    width: 32px;
+    height: 32px;
+}
+
+.eh-toggle.xs .eh-toggle__inner {
+    height: 26px;
+    width: 52px;
+    min-width: 0;
+}
+.eh-toggle.xs .eh-toggle__handle {
+    width: 26px;
+    height: 26px;
+}

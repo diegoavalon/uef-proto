@@ -5,31 +5,31 @@ export const originalEligibilitySchema = {
     properties: {
         hasBeenDeclinedInsurance: {
             type: "boolean",
-            title: ""
+            title: "Declination of Insurance:Has any applicant been declined for insurance due to health reasons?",
         },
         isUSACitizen: {
             type: "boolean",
-            title: ""
+            title: "Non-US Resident:Has any applicant lived in the 50 states of the USA or the District of Columbia for less than the past 12 months?"
         },
         isPregnant: {
             type: "boolean",
-            title: ""
+            title: "Expecting a Baby?:Are you or any family member an expectant mother/father, in the process of adopting a child, or undergoing infertility treatment?",
         },
         previousCondition: {
             type: "boolean",
-            title: ""
+            title: "Pre-existing Conditions:Within the last 5 years, has any applicant received medical or surgical consultation, advice, or treatment, including medication, for any of the following: blood disorders, liver disorders, kidney disorders, chronic obstructive pulmonary disorder (COPD) or emphysema, diabetes, cancer, multiple sclerosis, heart or circulatory system disorders (excluding high blood pressure), Crohn’s disease or ulcerative colitis, or alcohol or drug abuse?",
         },
         pendingCondition: {
             type: "boolean",
-            title: ""
+            title: "Pending Health Condition:Has any applicant had testing performed and has not received results, or been advised by a medical professional to have treatment, testing, or surgery that has not been performed?",
         },
         hasHIV: {
             type: "boolean",
-            title: ""
+            title: "HIV/AIDS Diagnosis:Within the last 5 years, has any applicant received treatment, advice, medication, or surgical consultation for HIV infection from a doctor or other licensed clinical professional, or had a positive test for HIV infection performed by a doctor or other licensed clinical professional?",
         },
         existingInsurance: {
             type: "boolean",
-            title: ""
+            title: "Existing Health Plan:Does any applicant now have hospital or medical expense insurance that will not terminate prior to the requested effective date?",
         },
         ineligibleAlert: {
             type: "string"
@@ -119,7 +119,7 @@ export const originalEligibilityUISchema = {
         }
     },
     ineligibleAlert: {
-        condition: 'isUSACitizen=true',
+        condition: 'isUSACitizen=true||isPregnant=true||hasBeenDeclinedInsurance=true||previousCondition=true||pendingCondition=true||hasHIV=true||existingInsurance=true||ineligibleAlert=true',
         "ui:widget": EhBanner,
         "ui:options": {
             label: false,

@@ -51,12 +51,12 @@
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    /* opacity: 0; */
     transition: opacity 1s;
     padding-top: 150px;
     padding-bottom: 150px;
 }
-legend {
+legend,
+.field-array > label {
     position: relative;
     font-size: 24px;
     font-weight: 600;
@@ -74,9 +74,4 @@ legend:before {
 }
 fieldset .form-group:last-child {
     margin-bottom: 140px;
-}
-.toggle-fancy__wrapper {
-    margin: 0;
-    padding: 40px 0;
-    border-bottom: 1px solid #cccccc;
 }
