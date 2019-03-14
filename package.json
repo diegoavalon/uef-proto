@@ -24,7 +24,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://diegoavalon.github.io/uef-proto",
   "eslintConfig": {
     "extends": "react-app"
   },

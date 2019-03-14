@@ -9,11 +9,9 @@ This work is ported from react-jsonschema-form v1.0.6.
 
 ## Installation
 
-    git clone https://github.com/diegoavalon/react-jsonschema-form-bs4.git
+    git clone https://github.com/diegoavalon/uef-proto.git
     npm install
 
 ## Develop
-
-Protoype files are under the `Playground` directory
 
     npm start
