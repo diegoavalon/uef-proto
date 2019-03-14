@@ -123,7 +123,7 @@ export const originalEligibilityUISchema = {
         "ui:widget": EhBanner,
         "ui:options": {
             label: false,
-            isFloating: true,
+            isModal: true,
             title: "Based on your answer, you are likely ineligible for this plan",
             text: 'Please call 1-844-229-4337 and let our licensed agents to help find other coverage tailored for you.'
         }

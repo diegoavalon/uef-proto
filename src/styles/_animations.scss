@@ -53,17 +53,25 @@
 	transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-.modal-enter {
+
+
+.modal-enter,
+.modal-appear {
     opacity: 0;
+    transform: scale(1.6);
 }
-.modal-enter-active {
+.modal-enter-active,
+.modal-appear-active {
     opacity: 1;
-    transition: opacity .5s var(--cubic-bezier);
+    transform: scale(1);
+    transition: all .5s var(--cubic-bezier);
 }
 .modal-exit {
     opacity: 1;
+    transform: scale(1);
 }
 .modal-exit-active {
     opacity: 0;
-    transition: opacity .5s var(--cubic-bezier);
+    transform: scale(1.6);
+    transition: all .5s var(--cubic-bezier);
 }

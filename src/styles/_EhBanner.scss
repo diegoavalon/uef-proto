@@ -5,26 +5,35 @@
     border: 0;
     border-radius: 5px;
     min-height: 3.75rem;
+    max-width: 60%;
     padding: .5rem 1.25rem;
     position: relative;
-    &--floating {
-        flex-direction: column;
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: fixed;
-        top: 50%;
-        left: 50%;
-        max-width: 960px;
-        transform: translate(-50%, -50%);
-    
-        padding: 40px;
-        & .alert__close-icon {
-            position: absolute;
-            top: 12px;
-            right: 20px;
-        }
-        & .alert__title {
-            margin-bottom: 12px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#2e3b40, 0.4);
+        z-index: 100;
+        &.isModal .alert {
+            flex-direction: column;
+            padding: 40px;
+            text-align: center;
+            & .alert__close-icon {
+                position: absolute;
+                top: 12px;
+                right: 20px;
+            }
+            & .alert__title {
+                margin-bottom: 12px;
+            }
         }
     }
+    
 }
 .alert__close-icon {
     cursor: pointer;
