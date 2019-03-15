@@ -52,8 +52,25 @@
     flex-direction: column;
     background-color: transparent;
     transition: opacity 1s;
-    padding-top: 150px;
+    padding-top: 170px;
     padding-bottom: 150px;
+}
+form {
+    opacity: 0;
+    animation: 1s fadeInDown 1s var(--cubic-bezier) forwards;
+}
+.segment__headline {
+    opacity: 0;
+    animation: 1s fadeFromRight 1s var(--cubic-bezier) forwards;
+}
+.segment__illustration {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    z-index: -1;
+
+    opacity: 0;
+    animation: 1s fadeFromLeft 1s var(--cubic-bezier) forwards;
 }
 legend,
 .field-array > label {
