@@ -57,7 +57,7 @@
 }
 form {
     opacity: 0;
-    animation: 1s fadeInDown 1s var(--cubic-bezier) forwards;
+    animation: 1s fadeIn 1s var(--cubic-bezier) forwards;
 }
 .segment__headline {
     opacity: 0;
