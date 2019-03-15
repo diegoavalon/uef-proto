@@ -1,6 +1,3 @@
-$secondary-color: var(--pm-grey);
-$main-color: #333;
-$secondary-color: #2196f3;
 $width: 550px; // Change Me
 
 .eh-text {
@@ -10,7 +7,8 @@ $width: 550px; // Change Me
         overflow: hidden;
         position: relative;
     }
-    &__input {
+    &__input,
+    &__select {
         display: block;
         width: 100%;
         padding-top: $width/15;
@@ -44,6 +42,17 @@ $width: 550px; // Change Me
             -webkit-text-fill-color: var(--pm-bg-dark) !important;
         }
     }
+    &__select {
+        opacity: 0;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+        &:focus {
+            outline: none;
+        }
+    }
     &__label {
         position: absolute;
         top: $width/15;
@@ -71,24 +80,26 @@ $width: 550px; // Change Me
     }
 }
 
-// ::selection {background: rgba($secondary-color, .3);}
-
+.eh-text__group .eh-text__select::-webkit-input-placeholder,
 .eh-text__group .eh-text__input::-webkit-input-placeholder {
 	opacity: 0;
 	transition: opacity .2s ease-out;
 }
 
+.eh-text__group .eh-text__select::-moz-placeholder,
 .eh-text__group .eh-text__input::-moz-placeholder {
 	opacity: 0;
 	transition: opacity .2s ease-out;
 }
 
+.eh-text__group .eh-text__select:focus::-webkit-input-placeholder,
 .eh-text__group .eh-text__input:focus::-webkit-input-placeholder {
     color: var(--pm-bg-dark);
 	opacity: 0.2;
 	transition-delay: .2s;
 }
 
+.eh-text__group .eh-text__select:focus::-moz-placeholder,
 .eh-text__group .eh-text__input:focus::-moz-placeholder {
     color: var(--pm-bg-dark);
     opacity: 0.2;

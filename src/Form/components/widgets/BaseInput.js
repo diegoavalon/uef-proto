@@ -41,7 +41,7 @@ function BaseInput(props) {
         onBlur={onBlur && (event => onBlur(inputProps.id, event.target.value))}
         onFocus={onFocus && (event => onFocus(inputProps.id, event.target.value))}
       />
-      <label className="eh-text__label h3 font-normal" htmlFor="name">{schema.title}</label>
+      <label className="eh-text__label h3 font-normal">{schema.title}</label>
       <div className="eh-text__bar"></div>
     </div> 
   );

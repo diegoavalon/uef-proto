@@ -66,11 +66,14 @@ legend:before {
     content: '';
     position: absolute;
     top: 11px;
-    right: 100%;
+    right: 0;
     width: 60px;
     height: 3px;
     background: #22292f;
-    transform: translateX(-28px);
+    @media screen and (min-width: 1440px) {
+        right: 100%;
+        transform: translateX(-28px);
+    }
 }
 fieldset .form-group:last-child {
     margin-bottom: 140px;

@@ -5,7 +5,7 @@
     border: 0;
     border-radius: 5px;
     min-height: 3.75rem;
-    max-width: 60%;
+    width: 60%;
     padding: .5rem 1.25rem;
     position: relative;
     &__wrapper {
@@ -23,6 +23,8 @@
             flex-direction: column;
             padding: 40px;
             text-align: center;
+            background: var(--pm-white);
+            max-width: 720px;
             & .alert__close-icon {
                 position: absolute;
                 top: 12px;

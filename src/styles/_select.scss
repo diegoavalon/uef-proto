@@ -1,0 +1,19 @@
+.eh-select {
+    display: block;
+    width: 100%;
+    padding-top: $width/15;
+    border: none;
+    border-radius: 0; // For iOS
+    // font-size: $width/18;
+    transition: .3s var(--cubic-bezier);
+
+
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    &:focus {
+        outline: none;
+    }
+}
