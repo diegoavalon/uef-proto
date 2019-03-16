@@ -11,11 +11,12 @@ $width: 550px; // Change Me
     &__select {
         display: block;
         width: 100%;
+        min-width: 128px;
         padding-top: $width/15;
         border: none;
         border-radius: 0; // For iOS
         font-size: $width/18;
-        transition: .3s var(--cubic-bezier);
+        transition: all .3s var(--cubic-bezier);
         &:not(:placeholder-shown) {
             ~ label {
                 top: 0;

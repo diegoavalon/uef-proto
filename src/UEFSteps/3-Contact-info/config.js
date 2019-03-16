@@ -60,7 +60,7 @@ export const originalContactUISchema = {
         street: {
             classNames: " mb-lg",
             "ui:widget": "text",
-            "ui:placeholder": "hola",
+            "ui:placeholder": "eg. 165 Marketplace Dr. San Francisco, CA",
             "ui:options": {
                 label: false
             } 
@@ -70,7 +70,7 @@ export const originalContactUISchema = {
         primaryPhone: {
             classNames: "w-1-2 inline-flex mb-lg",
             "ui:widget": "text",
-            "ui:placeholder": "hola",
+            "ui:placeholder": "eg. (415)781-1454",
             "ui:options": {
                 label: false
             }
@@ -78,15 +78,16 @@ export const originalContactUISchema = {
         primaryEmail: {
             classNames: "w-1-2 inline-flex mb-lg",
             "ui:widget": "text",
-            "ui:placeholder": "hola",
+            "ui:placeholder": "eg. ladygaga@gmail.com",
             "ui:options": {
-                label: false
+                label: false,
+                inputType: 'email'
             }
         },
         spousePhone: {
             classNames: "w-1-2 inline-flex mb-lg",
             "ui:widget": "text",
-            "ui:placeholder": "hola",
+            "ui:placeholder": "eg. (415) 781-1454",
             "ui:options": {
                 label: false
             }
@@ -94,9 +95,10 @@ export const originalContactUISchema = {
         spouseEmail: {
             classNames: "w-1-2 inline-flex mb-lg",
             "ui:widget": "text",
-            "ui:placeholder": "hola",
+            "ui:placeholder": "eg. princecharles@yahoo.com.uk",
             "ui:options": {
-                label: false
+                label: false,
+                inputType: 'email'
             }
         }
     },
@@ -104,23 +106,24 @@ export const originalContactUISchema = {
         email: {
             classNames: "w-1-2 inline-flex mb-lg",
             "ui:widget": "text",
-            "ui:placeholder": "mia mia",
+            "ui:placeholder": "eg. ladygaga@gmail.com",
             "ui:options": {
-                label: false
+                label: false,
+                inputType: 'email'
             }
         },
         password: {
             classNames: "w-1-2 inline-flex mb-lg",
             "ui:widget": "text",
-            "ui:placeholder": "mia mia",
+            "ui:placeholder": "********",
             "ui:options": {
-                label: false
+                label: false,
+                inputType: 'password'
             }
         },
         agreeToTerms: {
             classNames: "w-1-2 inline-flex mb-lg",
             "ui:widget": "checkbox",
-            "ui:placeholder": "mia mia",
             "ui:options": {
                 label: false
             }

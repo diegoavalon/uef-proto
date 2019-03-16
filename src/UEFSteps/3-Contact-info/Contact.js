@@ -43,7 +43,7 @@ class Contact extends Component {
     render() {    
         return (
             <Step
-                stepNum="3/5" 
+                stepNum="Step 3/4" 
                 title="How can we contact you?"
                 subtitle="We make sure you're getting the right plan, we'll let you know if there's anything better."
             >
@@ -56,12 +56,12 @@ class Contact extends Component {
                     onError={log("errors")}>
 
                     <div className="flex justify-between text-white mt-neg-xxl">
-                        <Link to="/applicants" className="button button-xlg" onClick={() => this.props.transitionToStep("Information")}>
+                        <Link to="/applicants" className="button button-xlg secondary" onClick={() => this.props.transitionToStep("Information")}>
                             Back
                         </Link>
-                        <Link to="/payment" className="button button-xlg" onClick={() => this.props.transitionToStep("Information")}>
-                            <span className="mr-sm" style={{ color: 'var(--pm-green200)' }}>Next</span>
-                            Payments
+                        <Link to="/summary" className="button button-xlg primary" onClick={() => this.props.transitionToStep("Information")}>
+                            <span className="mr-sm">Next</span>                            
+                            Summary
                         </Link>
                     </div>
                 </Form>

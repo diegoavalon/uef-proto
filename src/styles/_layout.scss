@@ -1,15 +1,14 @@
-// Modal
+// Modal || Steps
 .modal {
     backface-visibility: hidden;
-    position: fixed;
-    padding: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    // padding: 0;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
     background-color: var(--pm-white);
     background-color: #ffffff;
-    overflow: auto;
     transition: opacity .5s ease-in-out;
     z-index: 100;
 
@@ -36,7 +35,25 @@
         text-decoration: none;
     }
     .button {
-        background: var(--pm-bg-dark);
+        transition: all .3s var(--cubic-bezier);
+        &.primary {
+            background: var(--pm-bg-dark);
+            span {
+                color: var(--pm-green300);
+            }
+            &:hover {
+                background: var(--pm-bg-dark);
+                transform: translateY(-4px);
+                box-shadow: 0 6px 10px 0 rgba(33, 33, 33, .08), 0 1px 18px 0 rgba(33, 33, 33, .08), 0 3px 5px -1px rgba(33, 33, 33, .12);
+            }
+        }
+        &.secondary {
+            border: 1px solid var(--pm-green300);
+            color: var(--pm-green300);
+            span {
+                color: var(--pm-bg-dark);
+            }
+        }
     }
 }
 
@@ -47,30 +64,43 @@
 }
 
 // Form
-.segment {
+.step {
     display: flex;
     flex-direction: column;
+    position: relative;
     background-color: transparent;
     transition: opacity 1s;
     padding-top: 170px;
     padding-bottom: 150px;
-}
-form {
-    opacity: 0;
-    animation: 1s fadeIn 1s var(--cubic-bezier) forwards;
-}
-.segment__headline {
-    opacity: 0;
-    animation: 1s fadeFromRight 1s var(--cubic-bezier) forwards;
-}
-.segment__illustration {
-    position: absolute;
-    top: 120px;
-    right: 0;
-    z-index: -1;
-
-    opacity: 0;
-    animation: 1s fadeFromLeft 1s var(--cubic-bezier) forwards;
+    &__headline {
+        opacity: 0;
+        animation: fadeFromRight 1s var(--cubic-bezier) forwards;
+    }
+    &__illustration {
+        position: absolute;
+        top: 120px;
+        right: 0;
+        z-index: -1;
+    
+        opacity: 0;
+        animation: fadeFromLeft 1s var(--cubic-bezier) forwards;
+    }
+    form {
+        opacity: 0;
+        animation: fadeIn 1s var(--cubic-bezier) forwards;
+    }
+    &__title:before {
+        content: attr(data-step-num);
+        background-color: var(--pm-green100);
+        display: inline-block;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        padding: 4px 5px 4px 8px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        position: absolute;
+        top: -40px;
+    }
 }
 legend,
 .field-array > label {
@@ -82,7 +112,7 @@ legend,
 legend:before {
     content: '';
     position: absolute;
-    top: 11px;
+    top: 13px;
     right: 0;
     width: 60px;
     height: 3px;

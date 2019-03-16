@@ -94,12 +94,10 @@
 	transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-
-
 .modal-enter,
 .modal-appear {
     opacity: 0;
-    transform: scale(1.6);
+    transform: scale(1.4);
 }
 .modal-enter-active,
 .modal-appear-active {
@@ -113,6 +111,6 @@
 }
 .modal-exit-active {
     opacity: 0;
-    transform: scale(1.6);
+    transform: scale(1.4);
     transition: all .5s var(--cubic-bezier);
 }

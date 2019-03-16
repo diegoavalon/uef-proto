@@ -43,7 +43,7 @@ class Applicant extends Component {
     render() {    
         return (
             <Step
-                stepNum="2/5" 
+                stepNum="Step 2/4" 
                 title="Who will be on this policy?"
                 subtitle="We'll walk you through everything you need to have your family enrolled under this plan."
             >
@@ -56,11 +56,11 @@ class Applicant extends Component {
                     onError={log("errors")}>
 
                     <div className="flex justify-between text-white mt-neg-xxl">
-                        <Link to="/eligibility" className="button button-xlg mt-lg" onClick={() => this.props.transitionToStep("Information")}>
+                        <Link to="/eligibility" className="button button-xlg secondary mt-lg" onClick={() => this.props.transitionToStep("Information")}>
                             Back
                         </Link>
-                        <Link to="/contact" className="button button-xlg mt-lg" onClick={() => this.props.transitionToStep("Information")}>
-                            <span className="mr-sm" style={{ color: 'var(--pm-green200)' }}>Next</span>
+                        <Link to="/contact" className="button button-xlg primary mt-lg" onClick={() => this.props.transitionToStep("Information")}>
+                            <span className="mr-sm">Next</span>
                             Contact Info
                         </Link>
                     </div>

@@ -40,7 +40,7 @@
   transition-delay: 0.15s;
 }
 .eh-check__label:hover svg {
-  stroke: #0099d6;
+  stroke: var(--pm-teal500);
 }
 .eh-check__label {
     border-radius: 4px;
@@ -51,10 +51,9 @@
     background: #f8f8f8;
 }
 .eh-check__input:checked + .eh-check__label svg {
-  stroke: #0099d6;
+  stroke: var(--pm-teal500);
   opacity: 1;
   transition: all 0.2s linear;
-
 }
 .eh-check__input:checked + .eh-check__label svg path {
   stroke-dashoffset: 60;

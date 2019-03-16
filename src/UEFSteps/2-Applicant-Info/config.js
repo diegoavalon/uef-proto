@@ -18,15 +18,21 @@ export const originalApplicantSchema = {
                     title: "Gender"
                 },
                 heightFt: {
-                    type: "string",
+                    type: "integer",
+                    minimum: 3,
+                    maximum: 7,
                     title: "Height (ft.)"
                 },
                 heightIn: {
-                    type: "string",
+                    type: "integer",
+                    minimum: 1,
+                    maximum: 11,
                     title: "Height (in.)"
                 },
                 weight: {
-                    type: "string",
+                    type: "integer",
+                    minimum: 42,
+                    maximum: 700,
                     title: "Weight"
                 }
             }
@@ -48,15 +54,21 @@ export const originalApplicantSchema = {
                     title: "Gender"
                 },
                 heightFt: {
-                    type: "string",
+                    type: "integer",
+                    minimum: 3,
+                    maximum: 7,
                     title: "Height (ft.)"
                 },
                 heightIn: {
-                    type: "string",
+                    type: "integer",
+                    minimum: 1,
+                    maximum: 11,
                     title: "Height (in.)"
                 },
                 weight: {
-                    type: "string",
+                    type: "integer",
+                    minimum: 42,
+                    maximum: 700,
                     title: "Weight"
                 }
             }
@@ -100,23 +112,23 @@ export const originalApplicantUISchema = {
         },
         heightFt: {
             classNames: "w-1-4 inline-flex mb-lg",
-            "ui:widget": "text",
-            "ui:placeholder": "eg. 5 ft.",
+            "ui:widget": "updown",
+            "ui:placeholder": "5 ft.",
             "ui:options": {
                 label: false
             }
         },
         heightIn: {
             classNames: "w-1-4 inline-flex mb-lg",
-            "ui:widget": "text",
-            "ui:placeholder": "eg. 10 in.",
+            "ui:widget": "updown",
+            "ui:placeholder": "10 in.",
             "ui:options": {
                 label: false
             }
         },
         weight: {
             classNames: "w-1-2 inline-flex mb-lg",
-            "ui:widget": "text",
+            "ui:widget": "updown",
             "ui:placeholder": "160 lbs.",
             "ui:options": {
                 label: false
@@ -158,23 +170,23 @@ export const originalApplicantUISchema = {
         },
         heightFt: {
             classNames: "w-1-4 inline-flex mb-lg",
-            "ui:widget": "text",
-            "ui:placeholder": "eg. 5 ft.",
+            "ui:widget": "updown",
+            "ui:placeholder": "5 ft.",
             "ui:options": {
                 label: false
             }
         },
         heightIn: {
             classNames: "w-1-4 inline-flex mb-lg",
-            "ui:widget": "text",
-            "ui:placeholder": "eg. 10 in.",
+            "ui:widget": "updown",
+            "ui:placeholder": "10 in.",
             "ui:options": {
                 label: false
             }
         },
         weight: {
             classNames: "w-1-2 inline-flex mb-lg",
-            "ui:widget": "text",
+            "ui:widget": "updown",
             "ui:placeholder": "160 lbs.",
             "ui:options": {
                 label: false

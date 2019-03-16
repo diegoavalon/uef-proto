@@ -10,6 +10,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Eligibility from "./UEFSteps/1-Eligibility/Eligibility";
 import Applicant from './UEFSteps/2-Applicant-Info/Applicant';
 import Contact from './UEFSteps/3-Contact-info/Contact';
+import Summary from './UEFSteps/4-Summary/Summary';
 
 import MockScreenshot from './images/entry-page.jpg';
 import 'ehealth-pillar/output.css';
@@ -110,6 +111,11 @@ class App extends Component {
             <Route
               path="/contact"
               component={Contact}
+              exact
+            />
+            <Route
+              path="/summary"
+              component={Summary}
               exact
             />
           </Switch>

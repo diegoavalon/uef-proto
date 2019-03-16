@@ -42,7 +42,7 @@ class Eligibility extends Component {
     render() {    
         return (
             <Step
-                stepNum="1/5"
+                stepNum="Step 1/4"
                 title="Enrollment is simple."
                 subtitle="Let’s quickly see if you are eligible."
             >   
@@ -57,14 +57,14 @@ class Eligibility extends Component {
                     onError={log("errors")}>
 
                     <div className="flex justify-end text-white">
-                        <Link to="/applicants" className="button button-xlg mt-lg" onClick={() => this.props.transitionToStep("Information")}>
-                            <span className="mr-sm" style={{ color: 'var(--pm-green200)' }}>Next</span>
+                        <Link to="/applicants" className="button button-xlg primary mt-lg" onClick={() => this.props.transitionToStep("Information")}>
+                            <span className="mr-sm">Next</span>
                             Applicant Info
                         </Link>
                     </div>
                 </Form>
 
-                <svg className="segment__illustration" width="583" height="388" viewBox="0 0 583 388" xmlns="http://www.w3.org/2000/svg">
+                <svg className="step__illustration" width="583" height="388" viewBox="0 0 583 388" xmlns="http://www.w3.org/2000/svg">
                     <g fill="none" fillRule="evenodd">
                         <g>
                         <circle stroke="#2E3B40" cx="448" cy="41" r="19"/>

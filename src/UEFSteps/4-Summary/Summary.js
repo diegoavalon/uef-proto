@@ -1,8 +1,71 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Step extends Component {
-    render() {
+const samplePlan = [{
+    category: "Health",
+    carrier: "Kaiser Permanente",
+    planName: "Silver Full PPO 2000/45 OffEx",
+    benefits: [{
+        label: "Overview",
+        list: [
+            "Plan type:PPO",
+            "Annual deductible:$0 per individual | $0 per family",
+            "Doctor visits:$15",
+            "Generic drugs:$5",
+            "Out-of-Network coverage:Yes",
+            "Out-of-Pocket limit:$3,350 per individual | $6,700 per family",
+            "Health Savings Account (HSA) eligible:No"
+        ],
+    }, {
+        label: "Cost",
+        list: [
+            "First month:$381.72",
+            "Each month after: $287.31/mo"
+        ]
+    }]
+}, {
+    category: "Dental",
+    carrier: "Blue Cross Blue Shield of California",
+    planName: "Silver Full PPO 2000/45 OffEx",
+    benefits: [{
+        label: "Overview",
+        list: [
+            "Annual max:$1500",
+            "Cleaning:No Charge" 
+        ],
+    }, {
+        label: "Cost",
+        list: [
+            "Monthly:$22.64"
+        ]
+    }]              
+}, {
+    category: "Vision",
+    carrier: "Blue Cross Blue Shield of California",
+    planName: "Preferred Vision",
+    benefits: [{
+        label: "Overview",
+        list: [
+            "Doctor visits:$10",
+            "Frame allowance:$120" 
+        ],
+    }, {
+        label: "Cost",
+        list: [
+            "Monthly:$3.45"
+        ]
+    }]
+}];
+
+class Summary extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+        };
+    }
+
+    render() {    
         return (
             <div className="modal">
                 <header className="modal__header flex justify-center">
@@ -18,19 +81,78 @@ class Step extends Component {
                 </header>
 
                 <div className="modal__body">
-                    <section className="step wrapper">
-                        <div className="step__headline w-3-5 pb-xxl">
-                            <h1 data-step-num={this.props.stepNum} className="step__title text-display mb-base">{this.props.title}</h1>
-                            <h2 className="h2 font-normal">{this.props.subtitle}</h2>
+                    <section className="step wrapper step--summary">
+                        <div className="step__headline w-2-3 pr-lg">
+                            <h1 data-step-num="Final Step" className="step__title text-display mb-sm">Just need your review.</h1>
+                            <h2 className="h2 font-normal mb-md">Here is your customized health plan.</h2>
+                            <div className="application-actions flex justify-end mb-xxs">                                
+                                <button className="button">Email</button>
+                                <button className="button">Download</button>
+                            </div>
+                            <section className="step__application">
+                                {samplePlan.map(({ category, carrier, planName, benefits }, i) => (
+                                    <div key={i} className="app-group">
+                                        <div className="app-group__category h4">{category}</div>
+                                        <h3 className="app-group__category-plan mb-xxs">{carrier}</h3>
+                                        <p className="subtitle mb-base">{planName}</p>
+                                        {benefits.map((benefit, i) => {
+                                            return (
+                                                <dl key={i}>
+                                                    <dt className="uppercase bodySmall">{benefit.label}</dt>
+                                                    {benefit.list.map((item, i) => {
+                                                        const textArr = item.split(':');
+                                                        return (
+                                                            <dd key={i}>
+                                                                <span>{textArr[0]}</span>
+                                                                <span className="font-semibold">{textArr[1]}</span>
+                                                            </dd>
+                                                        );
+                                                    })}
+                                                </dl>
+                                            );
+                                        })}
+                                </div>
+                                ))}
+                            </section>
                         </div>
-                
-                        {this.props.children}
-                        
+                        <div className="step__sidebar w-1-3">
+                            <div className="enrollment">
+                                <div className="cost">
+                                    <div className="cost__price flex items-end">
+                                        <span className="h3">Total</span>
+                                        <h1 className="text-display">$320</h1>
+                                        <span className="h5">/mo</span>
+                                    </div>
+                                    <button className="enrollment__button button button-xlg w-full">Enroll</button>
+                                </div>
+                            </div>
+                        </div>  
                     </section>
+                    
+                    <div className="wrapper pb-xl">
+                        <p className="caption my-sm">
+                        IMPORTANT NOTICES AND DISCLAIMERS
+                        </p>
+                        <p className="caption my-sm">
+                        The rates and details shown above are estimates and are not guaranteed to match the final rates and details of your policy. Many factors can cause the estimated rates above to differ from the actual cost of your policy. Some factors involve changes in your application or group – for example if your group’s application has a different number of employees, or employees with different ages or other characteristics than you entered, then the rates for your policy will change from the above estimates. In addition, even if your group characteristics do not change, insurance companies periodically update their rates, particularly at the end of calendar years. Your actual policy rate will typically depend on the actual date your policy begins (not the date on which you apply or the date you request the policy to begin). For example, if you requested estimated rates in the last couple of months of 2017 for a policy beginning in 2018, the estimated rates above may reflect 2017 rates if the 2018 rates are in the process of being updated and are not yet available to our system for generating the estimated rates above. Other information, such as plan names, benefits, and availability, also change periodically (particularly at the end of calendar years) and this page may not immediately reflect such pending changes.
+                        </p>
+                        <p className="caption my-sm">
+                        *	Quoted rates are based off of the age at the time of enrollment. Due to a Blue Shield of CA (BSC) system issue, members enrolled midyear will be rated based on the age at the time of when the group was enrolled or the group's last renewal. This will result in a lower rate being billed by BSC until the group's next renewal. They are working to resolve this issue. If you have any questions, please contact your BSC representative.
+                        </p>
+                        <p className="caption my-sm">
+                        About the Benefits Summary
+                        </p>
+                        <p className="caption my-sm">
+                        The benefits matrix is a summary for information purposes only. Please review the Evidence of Coverage and Plan Contract (Policy) for a detailed description of coverage benefits, limitations and exclusions. Only the Terms and Conditions of Coverage Benefits listed in the policy are binding.
+                        </p>
+                        <p className="caption my-sm">
+                        The benefits listed are contingent on your use of physicians, hospitals, and services within the provider network for the specified health plan.
+                        </p>
+                    </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default Step;
+export default Summary;

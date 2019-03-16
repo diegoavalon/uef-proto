@@ -1,0 +1,99 @@
+.step.step--summary {
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+
+.step {
+    position: relative;
+    &__sidebar {        
+        border-radius: 5px;
+    }
+    &__application {
+        position: relative;
+    }
+}
+
+.app-group {
+    position: relative;
+    padding: 32px 40px 40px;
+    width: 100%;
+    background-color: var(--pm-bg);
+    border-bottom: 1px solid var(--pm-white);
+    &:first-child {
+        border-radius: 5px 5px 0 0;
+    }
+    &:last-child {
+        border-radius: 0 0 5px 5px;
+    }
+    &:hover .app-group__category {
+        left: -140px;
+    }
+    &__category {
+        position: absolute;
+        color: var(--pm-bg-dark);
+        left: -120px;
+        top: 36px;
+        z-index: -1;
+        transition: all .3s var(--cubic-bezier);
+        &:before {
+            content: '';
+            position: absolute;
+            border-bottom: 4px dotted var(--pm-grey);
+            width: 100px;
+            top: 10px;
+            left: 110%;
+        }
+    }
+    dl {
+        position: relative;
+        margin: 0;
+        & + dl {
+            margin-top: 40px;
+        }
+        dt {
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: all .3s var(--cubic-bezier);
+        }
+        dd {
+            position: relative;
+            margin: 0 0 10px 20px;
+            transition: all .3s var(--cubic-bezier);
+            &:before {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 4px;
+                width: 100%;
+                height: 0px;
+                border-bottom: 2px dotted var(--pm-bg-dark);
+                z-index: 0;
+                transition: all .3s var(--cubic-bezier);
+            }
+        } 
+        span {
+            display: inline-block;
+            position: relative;
+            background: var(--pm-bg);
+            z-index: 1;
+            transition: all .3s var(--cubic-bezier);
+            &:nth-child(1) {
+                padding: 0 8px 0 0;
+            }
+            &:nth-child(2) {
+                float: right;
+                padding: 0 0 0 8px;
+            }
+        }                    
+    }
+}
+
+.enrollment {
+    position: sticky;
+    top: 40px;
+    &__button {
+        background: var(--pm-teal500);
+        color: var(--pm-white);
+    }
+}
