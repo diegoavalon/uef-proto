@@ -10,6 +10,7 @@ $width: 550px; // Change Me
     &__input,
     &__select {
         display: block;
+        background: transparent;
         width: 100%;
         min-width: 128px;
         padding-top: $width/15;

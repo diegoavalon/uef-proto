@@ -8,7 +8,6 @@
     // right: 0;
     // bottom: 0;
     background-color: var(--pm-white);
-    background-color: #ffffff;
     transition: opacity .5s ease-in-out;
     z-index: 100;
 
@@ -19,6 +18,7 @@
         background: var(--pm-green700);
         background: linear-gradient(to left, var(--pm-green700), var(--pm-green300)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         border-bottom: 1px solid var(--pm-green700);
+        box-shadow: 0 4px 5px 0 rgba(33, 33, 33, .08), 0 1px 10px 0 rgba(33, 33, 33, .08), 0 2px 4px -1px rgba(33, 33, 33, .12);
         svg {
             width: 92px;
             height: auto;

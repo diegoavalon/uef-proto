@@ -93,14 +93,36 @@
     position: sticky;
     top: 40px;
     &__section {
-        padding: 40px 0;
-        border-bottom: 2px solid var(--pm-grey);
-        &:last-child {
-            border-bottom: none;
+        &-title {
+            position: relative;
+            text-align: center;
+            span {
+                padding: 4px 8px;
+                background: var(--pm-white);
+                letter-spacing: .5px;
+                z-index: 10;
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                width: 100%;
+                height: 1px;
+                background: var(--pm-bg-dark);
+                z-index: -1;
+            }
+        }
+        &-body {
+            padding: 12px 0 48px;
         }
     }
     &__button {
         background: var(--pm-teal500);
         color: var(--pm-white);
+    }
+    fieldset .form-group:last-child {
+        margin-bottom: 60px;
     }
 }

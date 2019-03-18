@@ -35,7 +35,6 @@ class Contact extends Component {
     
     handleFormSubmit(data) {
         const { formData } = data;
-        debugger;
     
         console.log('This is the form info we will submit', formData);
     }
