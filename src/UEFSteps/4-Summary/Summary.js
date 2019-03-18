@@ -160,7 +160,7 @@ class Summary extends Component {
                         <div className="step__sidebar w-1-3">
                             <div className="enrollment">
                                 <div className="cost">
-                                    <EnrollmentSection title="Health Plan Review">
+                                    <EnrollmentSection title="My Health Plan">
                                         <div className="cost__price flex justify-around items-end pt-sm" style={{ marginBottom: '20px' }}>
                                             <span className="h3">Total</span>
                                             <div>

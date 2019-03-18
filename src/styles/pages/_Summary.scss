@@ -7,6 +7,7 @@
     position: relative;
     &__sidebar {        
         border-radius: 5px;
+        animation: fadeFromLeft 1s var(--cubic-bezier) forwards;        
     }
     &__application {
         position: relative;
