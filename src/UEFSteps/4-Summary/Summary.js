@@ -3,56 +3,56 @@ import { Link } from 'react-router-dom';
 
 const samplePlan = [{
     category: "Health",
-    carrier: "Kaiser Permanente",
-    planName: "Silver Full PPO 2000/45 OffEx",
+    carrier: "UnitedHealthcare",
+    planName: "Short Term Medical Value Select A",
     benefits: [{
         label: "Overview",
         list: [
-            "Plan type:PPO",
-            "Annual deductible:$0 per individual | $0 per family",
-            "Doctor visits:$15",
-            "Generic drugs:$5",
-            "Out-of-Network coverage:Yes",
-            "Out-of-Pocket limit:$3,350 per individual | $6,700 per family",
-            "Health Savings Account (HSA) eligible:No"
+            "Plan Type:EPO",
+            "Deductible:$12,500 per individual | $25,000 per family",
+            "Doctor visits:30% coinsurance after deductible",
+            "Annual Max Benefit:$2 Million per person"
         ],
     }, {
         label: "Cost",
         list: [
-            "First month:$381.72",
-            "Each month after: $287.31/mo"
+            "Monthly rate:$248.80/mo"
         ]
     }]
 }, {
     category: "Dental",
-    carrier: "Blue Cross Blue Shield of California",
-    planName: "Silver Full PPO 2000/45 OffEx",
+    carrier: "UnitedHealthcare",
+    planName: "Dental Primary SM",
     benefits: [{
         label: "Overview",
         list: [
-            "Annual max:$1500",
-            "Cleaning:No Charge" 
+            "Plan Type:DPPO",
+            "Deductible:$50 per person",
+            "Coinsurance:30%",
+            "Annual Max Benefit:$1,000 per person"
         ],
     }, {
         label: "Cost",
         list: [
-            "Monthly:$22.64"
+            "Monthly rate:$41.36/mo"
         ]
     }]              
 }, {
     category: "Vision",
-    carrier: "Blue Cross Blue Shield of California",
-    planName: "Preferred Vision",
+    carrier: "UnitedHealthcare",
+    planName: "Plan B",
     benefits: [{
         label: "Overview",
         list: [
-            "Doctor visits:$10",
-            "Frame allowance:$120" 
+            "Eye Exam:$10 Copay",
+            "Lenses:$10 Copay",
+            "Frames:any charge over $150 allowance",
+            "Contacts:$0 Copay "
         ],
     }, {
         label: "Cost",
         list: [
-            "Monthly:$3.45"
+            "Monthly rate:$25.60/mo"
         ]
     }]
 }];
@@ -123,31 +123,22 @@ class Summary extends Component {
                                         <h1 className="text-display">$320</h1>
                                         <span className="h5">/mo</span>
                                     </div>
-                                    <button className="enrollment__button button button-xlg w-full">Enroll</button>
+                                    <div className="enrollment__section enrollment__section--review">
+                                        <button className="enrollment__button button button-xlg w-full">Confirm Plan</button>                                                                        
+                                    </div>
+                                    <div className="enrollment__section enrollment__section--billing">
+                                        <button className="enrollment__button button button-xlg w-full">Setup Payment</button>                                    
+                                    </div>
+                                    <div className="enrollment__section enrollment__section--enroll">
+                                        <button className="enrollment__button button button-xlg w-full">Enroll</button>
+                                        <p className="caption my-sm">By clicking Enroll, I acknowledge that I have reviewed my application and plan benefits, exclusions and limitations and I am indicating my intent to electronically sign the application and warrant that all of the information I have provided is true, complete and accurate.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>  
                     </section>
                     
                     <div className="wrapper pb-xl">
-                        <p className="caption my-sm">
-                        IMPORTANT NOTICES AND DISCLAIMERS
-                        </p>
-                        <p className="caption my-sm">
-                        The rates and details shown above are estimates and are not guaranteed to match the final rates and details of your policy. Many factors can cause the estimated rates above to differ from the actual cost of your policy. Some factors involve changes in your application or group – for example if your group’s application has a different number of employees, or employees with different ages or other characteristics than you entered, then the rates for your policy will change from the above estimates. In addition, even if your group characteristics do not change, insurance companies periodically update their rates, particularly at the end of calendar years. Your actual policy rate will typically depend on the actual date your policy begins (not the date on which you apply or the date you request the policy to begin). For example, if you requested estimated rates in the last couple of months of 2017 for a policy beginning in 2018, the estimated rates above may reflect 2017 rates if the 2018 rates are in the process of being updated and are not yet available to our system for generating the estimated rates above. Other information, such as plan names, benefits, and availability, also change periodically (particularly at the end of calendar years) and this page may not immediately reflect such pending changes.
-                        </p>
-                        <p className="caption my-sm">
-                        *	Quoted rates are based off of the age at the time of enrollment. Due to a Blue Shield of CA (BSC) system issue, members enrolled midyear will be rated based on the age at the time of when the group was enrolled or the group's last renewal. This will result in a lower rate being billed by BSC until the group's next renewal. They are working to resolve this issue. If you have any questions, please contact your BSC representative.
-                        </p>
-                        <p className="caption my-sm">
-                        About the Benefits Summary
-                        </p>
-                        <p className="caption my-sm">
-                        The benefits matrix is a summary for information purposes only. Please review the Evidence of Coverage and Plan Contract (Policy) for a detailed description of coverage benefits, limitations and exclusions. Only the Terms and Conditions of Coverage Benefits listed in the policy are binding.
-                        </p>
-                        <p className="caption my-sm">
-                        The benefits listed are contingent on your use of physicians, hospitals, and services within the provider network for the specified health plan.
-                        </p>
                     </div>
                 </div>
             </div>
