@@ -168,7 +168,7 @@ class Summary extends Component {
                                                 <span className="h5">/mo</span>
                                             </div>
                                         </div>
-                                        <button className="enrollment__button button button-xlg w-full" onClick={() => this.setState({ isSetupBillingActive: true })}>I'm ready to review</button>
+                                        <button className="enrollment__button button button-xlg w-full" onClick={() => this.setState({ isSetupBillingActive: true })}>Start My Guided Review</button>
                                         <button className="button w-full mt-sm">Download My Application</button>
                                     </EnrollmentSection>
 
