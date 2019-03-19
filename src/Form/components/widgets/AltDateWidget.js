@@ -143,13 +143,13 @@ class AltDateWidget extends Component {
           </li>
         ))}
         <li className="list-inline-item">
-          <a href="#" className="btn btn-info btn-now" onClick={this.setNow}>
+          <a href="#a" className="btn btn-info btn-now" onClick={this.setNow}>
             Now
           </a>
         </li>
         <li className="list-inline-item">
           <a
-            href="#"
+            href="#b"
             className="btn btn-warning btn-clear"
             onClick={this.clear}>
             Clear

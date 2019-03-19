@@ -68,22 +68,31 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    padding-top: 80px;
+    padding-bottom: 80px;
     background-color: transparent;
     transition: opacity 1s;
-    padding-top: 170px;
-    padding-bottom: 150px;
+    @media screen and (min-width: 800px) {
+        padding-top: 170px;
+        padding-bottom: 150px;
+    }
     &__headline {
         opacity: 0;
         animation: fadeFromRight 1s var(--cubic-bezier) forwards;
     }
     &__illustration {
         position: absolute;
-        top: 120px;
+        top: 68px;
         right: 0;
+        width: 260px;
         z-index: -1;
     
         opacity: 0;
         animation: fadeFromLeft 1s var(--cubic-bezier) forwards;
+        @media screen and (min-width: 600px) {
+            width: 360px;
+            top: 96px;
+        }
     }
     form {
         opacity: 0;
@@ -99,7 +108,10 @@
         border-radius: 3px;
         text-transform: uppercase;
         position: absolute;
-        top: -40px;
+        top: -32px;
+        @media screen and (min-width: 800px) {
+            top: -40px;
+        }
     }
 }
 legend,

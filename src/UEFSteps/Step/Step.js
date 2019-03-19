@@ -19,8 +19,8 @@ class Step extends Component {
 
                 <div className="modal__body">
                     <section className="step wrapper">
-                        <div className="step__headline w-3-5 pb-xxl">
-                            <h1 data-step-num={this.props.stepNum} className="step__title text-display mb-base">{this.props.title}</h1>
+                        <div className="step__headline w-full md:w-3-5 pb-xxxl md:pb-xxl">
+                            <h1 data-step-num={this.props.stepNum} className="step__title text-display mb-sm md:mb-base">{this.props.title}</h1>
                             <h2 className="h2 font-normal">{this.props.subtitle}</h2>
                         </div>
                 

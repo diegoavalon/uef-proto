@@ -82,7 +82,7 @@ function SelectWidget(props) {
         }}>
         {!multiple && !schema.default && <option value="">{placeholder}</option>}
         {enumOptions.map(({ value, label }, i) => {
-          const disabled = enumDisabled && enumDisabled.indexOf(value) != -1;
+          const disabled = enumDisabled && enumDisabled.indexOf(value) !== -1;
           return (
             <option className="eh-select__option" key={i} value={value} disabled={disabled}>
               {label}

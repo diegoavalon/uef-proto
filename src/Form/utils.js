@@ -182,6 +182,8 @@ function computeDefaults(schema, parentDefaults, definitions = {}) {
           return [];
         }
       }
+      break
+    default: return;
   }
   return defaults;
 }
@@ -613,6 +615,7 @@ function withExactlyOneSubschema(
   dependencyKey,
   oneOf
 ) {
+  // eslint-disable-next-line
   const validSubschemas = oneOf.filter(subschema => {
     if (!subschema.properties) {
       return false;
@@ -631,7 +634,7 @@ function withExactlyOneSubschema(
         errors
       } = validateFormData(formData, conditionSchema);
       return errors.length === 0;
-    }
+    } 
   });
   if (validSubschemas.length !== 1) {
     console.warn(

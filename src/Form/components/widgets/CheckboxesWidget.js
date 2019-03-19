@@ -15,7 +15,7 @@ function deselectValue(value, selected) {
 
 function CheckboxesWidget(props) {
   const { id, disabled, options, value, autofocus, readonly, onChange } = props;
-  const { enumOptions, inline, toggle, toggleFancy, toggleFancyContent } = options;
+  const { enumOptions, inline, toggle, toggleFancy } = options;
 
   return (
     <div className={`checkboxes flex flex-wrap items-start${inline ? '' : ' flex-col'}`} id={id}>

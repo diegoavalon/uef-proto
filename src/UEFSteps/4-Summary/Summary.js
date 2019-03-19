@@ -199,7 +199,7 @@ class Summary extends Component {
                                     >
                                         <EnrollmentSection title="Success Page">
                                             <div className="my-md text-center">
-                                                <h3 className="h2 mb-sm">Congratulations! 🎉</h3>
+                                                <h3 className="h2 mb-sm">Congratulations! <span role="img" aria-label="Party icon">🎉</span></h3>
                                                 <p className="bodyLarge">The above action should redirect to a success page including things for our customer to look for.</p>
                                             </div>
                                         </EnrollmentSection>

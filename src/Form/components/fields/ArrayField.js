@@ -269,9 +269,9 @@ class ArrayField extends Component {
         newErrorSchema = {};
         const errorSchema = this.props.errorSchema;
         for (let i in errorSchema) {
-          if (i == index) {
+          if (i === index) {
             newErrorSchema[newIndex] = errorSchema[index];
-          } else if (i == newIndex) {
+          } else if (i === newIndex) {
             newErrorSchema[index] = errorSchema[newIndex];
           } else {
             newErrorSchema[i] = errorSchema[i];
@@ -282,9 +282,9 @@ class ArrayField extends Component {
         formData.map((item, i) => {
           // i is string, index and newIndex are numbers,
           // so using "==" to compare
-          if (i == newIndex) {
+          if (i === newIndex) {
             return formData[index];
-          } else if (i == index) {
+          } else if (i === index) {
             return formData[newIndex];
           } else {
             return item;

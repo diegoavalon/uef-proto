@@ -102,7 +102,7 @@ export default class Form extends Component {
     const { errors, errorSchema, schema, uiSchema } = this.state;
     const { ErrorList, showErrorList, formContext } = this.props;
 
-    if (errors.length && showErrorList != false) {
+    if (errors.length && showErrorList !== false) {
       return (
         <ErrorList
           errors={errors}
@@ -213,7 +213,7 @@ export default class Form extends Component {
 
     const { schema, uiSchema, formData, errorSchema, idSchema } = this.state;
     const registry = this.getRegistry();
-    const _SchemaField = registry.fields.SchemaField;
+    const SchemaField = registry.fields.SchemaField;
 
     return (
       <form
@@ -232,7 +232,7 @@ export default class Form extends Component {
           this.formElement = form;
         }}>
         {this.renderErrors()}
-        <_SchemaField
+        <SchemaField
           schema={schema}
           uiSchema={uiSchema}
           errorSchema={errorSchema}

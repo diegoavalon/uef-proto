@@ -52,7 +52,7 @@ function CheckboxWidget(props) {
     const toggleFancySubtitle = toggleFancyOptions[1];
 
     return (
-      <div className="toggle-fancy w-full flex items-center py-lg">
+      <div className="toggle-fancy w-full flex flex-col sm:flex-row items-center py-lg">
         <div className="toggle-fancy__icon-col self-start">
           <svg width="53" height="71" viewBox="0 0 82 109" xmlns="http://www.w3.org/2000/svg">
             <g fill="none" fillRule="evenodd">
@@ -66,7 +66,7 @@ function CheckboxWidget(props) {
             </g>
           </svg>
         </div>
-        <div className="toggle-fancy__text-col mx-md">
+        <div className="toggle-fancy__text-col sm:mx-md">
           <label htmlFor={id} className="h2 mb-xs font-normal">{toggleFancyTitle}</label>
           <label htmlFor={id} className="bodyLarge">{toggleFancySubtitle}</label>
         </div>
