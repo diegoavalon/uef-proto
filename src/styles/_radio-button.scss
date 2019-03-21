@@ -1,10 +1,10 @@
 .eh-radio__wrapper {
     margin-bottom: 12px;
 }
-.eh-radio-group input[type="radio"]:checked,
-.eh-radio-group input[type="radio"]:not(:checked),
-.eh-check-group input[type="checkbox"]:checked,
-.eh-check-group input[type="checkbox"]:not(:checked) {
+.eh-radio-group input[type="radio"],
+.eh-radio-group input[type="radio"],
+.eh-check-group input[type="checkbox"],
+.eh-check-group input[type="checkbox"] {
     position: absolute!important;
     width: 1px!important;
     height: 1px!important;
@@ -14,13 +14,10 @@
     clip: rect(0,0,0,0)!important;
     border: 0!important;
 }
-.eh-radio-group input[type="radio"]:checked + label,
-.eh-radio-group input[type="radio"]:not(:checked) + label
-{
+.eh-radio-group input[type="radio"] + label {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 160px;
     position: relative;
     padding-left: 36px;
     top: -5px;
@@ -28,30 +25,36 @@
     color: currentColor;
 	box-sizing: border-box;
 }
-.eh-radio-group input[type="radio"]:checked + label:before,
-.eh-radio-group input[type="radio"]:not(:checked) + label:before {
+.eh-radio-group label:before {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #cccccc;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--pm-grey);
     border-radius: 100%;
-    background: #fff;
+    background: var(--pm-white);
+    @media screen and (min-width: 800px) {
+        width: 24px;
+        height: 24px;
+    }
 }
-.eh-radio-group input[type="radio"]:checked + label:after,
-.eh-radio-group input[type="radio"]:not(:checked) + label:after {
+.eh-radio-group label:after {
     content: '';
-    width: 14px;
-    height: 14px;
-    background: #0099d6;
+    width: 10px;
+    height: 10px;
+    background: var(--pm-teal500);
     position: absolute;
     top: 4px;
     left: 4px;
     border-radius: 100%;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
+    @media screen and (min-width: 800px) {
+        width: 14px;
+        height: 14px; 
+    }
 }
 .eh-radio-group input[type="radio"]:not(:checked) + label:after {
     opacity: 0;
@@ -78,31 +81,32 @@
     margin-right: 0;
 }
 .selectable-card label {
-    box-shadow: inset 0 0 0 2px #cccccc;
+    box-shadow: inset 0 0 0 1px;
+    color: var(--pm-grey);
     border-radius: 5px;
 	display: block;
 	height: 100%;
 	width: 100%;
-    padding: 60px 20px 20px 20px !important;
-    line-height: 1.3 !important;
+    padding: 60px 20px 20px 20px;
+    line-height: 1.3;
 	cursor: pointer;
-	opacity: .5;
+	opacity: 1;
 	transition: all .5s ease-in-out;
 }
 .selectable-card label:hover, 
 .selectable-card label:focus, 
 .selectable-card label:active {
-    box-shadow: inset 0 0 0 2px #22292f;
+    color: var(--pm-bg-dark);
     opacity: 1;
 }
 .selectable-card label:before,
 .selectable-card label:after {
-    top: 1.5rem !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .selectable-card label:after {
-    top: 29px !important;
+    top: 29px;
 }
 .selectable-card input[type="radio"] {
 	opacity: 0;
@@ -114,7 +118,40 @@
 }
 .selectable-card input[type="radio"]:checked ~ label {
     opacity: 1;
-    border-color: #0099d6;
-    box-shadow: inset 0 0 0 3px #0099d6;
-    background: #e5f5fb;
+    border-color: var(--pm-teal500);
+    box-shadow: inset 0 0 0 3px var(--pm-teal500);
+}
+
+.question-fancy__actions {
+    width: 100%;
+    .eh-radio-group {
+        display: flex;
+        flex-direction: column;
+        &--inline {
+            flex-direction: row;
+        }
+        .selectable-card {
+            width: 50%;
+            margin: 0 0 12px 0;
+            align-self: flex-end;
+        }
+        label {
+            min-height: auto;
+            padding: 20px 20px 20px 20px;
+            &:before,
+            &:after {
+                top: 50%;
+                left: 1rem;
+                transform: translateY(-50%);
+            }
+            &:after {
+                top: 27px;
+                left: 21px;
+            }
+            @media screen and (min-width: 800px) {
+                left: 1.5rem;
+                
+            }
+        }
+    }
 }

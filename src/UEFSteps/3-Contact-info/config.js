@@ -2,17 +2,17 @@ export const originalContactSchema = {
     type: "object",
     properties: {
         address: {
-            title: "Where do you reside?",
+            title: "Home address",
             type: "object",
             properties: {
                 street: {
                     type: "string",
-                    title: "Home address"
+                    title: "Address"
                 }
             }
         },
         contacts: {
-            title: "What's the best number to reach you?",
+            title: "Contact info",
             type: "object",
             properties: {
                 primaryPhone: {
@@ -34,7 +34,7 @@ export const originalContactSchema = {
             }
         },
         createLogin: {
-            title: "Create a secure login",
+            title: "Create a secure account",
             type: "object",
             properties: {
                 email: {
@@ -68,7 +68,7 @@ export const originalContactUISchema = {
     },
     contacts: {
         primaryPhone: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex mb-0 md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. (415)781-1454",
             "ui:options": {
@@ -76,7 +76,7 @@ export const originalContactUISchema = {
             }
         },
         primaryEmail: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex mb-0 md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. ladygaga@gmail.com",
             "ui:options": {
@@ -85,7 +85,7 @@ export const originalContactUISchema = {
             }
         },
         spousePhone: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex mb-0 md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. (415) 781-1454",
             "ui:options": {
@@ -93,7 +93,7 @@ export const originalContactUISchema = {
             }
         },
         spouseEmail: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex mb-0 md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. princecharles@yahoo.com.uk",
             "ui:options": {
@@ -104,7 +104,7 @@ export const originalContactUISchema = {
     },
     createLogin: {
         email: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex mb-0 md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. ladygaga@gmail.com",
             "ui:options": {
@@ -113,7 +113,7 @@ export const originalContactUISchema = {
             }
         },
         password: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex mb-0 md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "********",
             "ui:options": {
@@ -122,7 +122,7 @@ export const originalContactUISchema = {
             }
         },
         agreeToTerms: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex mb-0 md:mb-lg",
             "ui:widget": "checkbox",
             "ui:options": {
                 label: false

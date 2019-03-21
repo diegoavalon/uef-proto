@@ -35,7 +35,6 @@ class Applicant extends Component {
     
     handleFormSubmit(data) {
         const { formData } = data;
-        debugger;
     
         console.log('This is the form info we will submit', formData);
     }
@@ -43,9 +42,10 @@ class Applicant extends Component {
     render() {    
         return (
             <Step
+                classNames="Applicant"
                 stepNum="Step 2/4" 
-                title="Who will be on this policy?"
-                subtitle="We'll walk you through everything you need to have your family enrolled under this plan."
+                title="Great! You're eligible."
+                subtitle="Let's start by learning who will be on this policy?"
             >
                 <Form schema={this.state.schema}
                     uiSchema={this.state.uiSchema}
@@ -55,7 +55,7 @@ class Applicant extends Component {
                     onSubmit={this.handleFormSubmit.bind(this)}
                     onError={log("errors")}>
 
-                    <div className="flex justify-between text-white mt-neg-xxl">
+                    <div className="segment__actions flex justify-between text-white">
                         <Link to="/eligibility" className="button button-xlg secondary mt-lg" onClick={() => this.props.transitionToStep("Information")}>
                             Back
                         </Link>

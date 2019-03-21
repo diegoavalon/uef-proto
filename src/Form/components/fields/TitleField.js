@@ -7,7 +7,7 @@ function TitleField(props) {
   const { id, title, required } = props;
   return (
     <legend id={id}>
-      {title}
+      <span>{title}</span>
       {required && <span className="required">{REQUIRED_FIELD_SYMBOL}</span>}
     </legend>
   );

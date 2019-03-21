@@ -1,0 +1,12 @@
+.Applicant,
+.Contact {
+    .step__body {
+        .wrapper {
+            max-height: 40vh;
+            overflow: auto;
+        }
+    }
+    .segment__actions {
+        justify-content: space-between;
+    }
+}

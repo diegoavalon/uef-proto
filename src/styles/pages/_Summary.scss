@@ -1,25 +1,77 @@
-.step.step--summary {
-    flex-direction: row;
-    // padding-bottom: 20px;
-}
-
-.step {
-    position: relative;
-    &__sidebar {        
-        border-radius: 5px;
-        animation: fadeFromLeft 1s var(--cubic-bezier) forwards;        
+.modal.Summary {
+    .step__headline {
+        padding-bottom: 20px;
     }
-    &__application {
-        position: relative;
+    .step__application {
+        padding-bottom: 240px;
+    }
+    .step__sidebar {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    @media screen and (min-width: 800px) and (max-width: 1139px) {
+        .eh-text__label {
+            color: var(--pm-bg);
+        }
+        .eh-text__input {
+            color: var(--pm-bg);
+        }
+    }
+    @media screen and (min-width: 1140px) {
+        .modal__body {
+            display: flex;
+            flex-direction: row;
+            max-width: calc(1140px + 300px);
+            margin: 0 auto;
+            padding-bottom: 150px;
+        }
+        .step {
+            padding-right: 0;
+            padding-left: 120px;
+            flex: 1;
+            .step__headline {
+                width: 100%;
+            }
+            .step__title {
+                line-height: .9;
+                margin-bottom: 12px;
+            }
+        }
+        .step__body {
+            justify-content: flex-start;
+            position: relative;
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            color: var(--pm-bg-dark);
+            padding-bottom: 80px;
+            max-width: 500px;
+            .wrapper {
+                max-height: initial !important;
+                padding: 0;
+                margin: 0;
+            }
+        }
+        .step__application {
+            padding-bottom: 0;
+        }
+        .step__sidebar {
+            padding-left: 60px;
+            padding-right: 60px;
+            padding-top: 170px;
+        }
     }
 }
 
 .app-group {
     position: relative;
-    padding: 32px 40px 40px;
+    padding: 20px;
     width: 100%;
     background-color: var(--pm-bg);
     border-bottom: 1px solid var(--pm-white);
+    @media screen and (min-width: 800px) {
+        padding: 32px 40px 40px;
+    }
     &:first-child {
         border-radius: 5px 5px 0 0;
     }
@@ -27,15 +79,17 @@
         border-radius: 0 0 5px 5px;
     }
     &:hover .app-group__category {
-        left: -140px;
+        left: -100px;
     }
     &__category {
         position: absolute;
         color: var(--pm-bg-dark);
-        left: -120px;
+        left: -80px;
         top: 36px;
         z-index: -1;
         transition: all .3s var(--cubic-bezier);
+
+        display: none;
         &:before {
             content: '';
             position: absolute;
@@ -43,6 +97,9 @@
             width: 100px;
             top: 10px;
             left: 110%;
+        }
+        @media screen and (min-width: 1200px) {
+            display: block;
         }
     }
     dl {
@@ -59,8 +116,11 @@
         }
         dd {
             position: relative;
-            margin: 0 0 10px 20px;
+            margin: 0 0 12px 12px;
             transition: all .3s var(--cubic-bezier);
+            @media screen and (min-width: 800px) {
+                margin: 0 0 12px 20px;
+            }
             &:before {
                 content: '';
                 position: absolute;
@@ -99,7 +159,7 @@
             text-align: center;
             span {
                 padding: 4px 8px;
-                background: var(--pm-white);
+                background: var(--pm-bg-dark);
                 letter-spacing: .5px;
                 z-index: 10;
             }
@@ -111,19 +171,39 @@
                 transform: translateY(-50%);
                 width: 100%;
                 height: 1px;
-                background: var(--pm-bg-dark);
+                background: none;
+                border: 1px dotted var(--pm-teal500);
                 z-index: -1;
             }
         }
         &-body {
-            padding: 12px 0 48px;
+            padding-bottom: 8px;
         }
     }
     &__button {
         background: var(--pm-teal500);
         color: var(--pm-white);
     }
+    .button:not(.enrollment__button) {
+        display: none;
+    }
     fieldset .form-group:last-child {
         margin-bottom: 60px;
+    }
+    @media screen and (min-width: 1140px) {
+        &__section-title {
+            span {
+                background: var(--pm-white);
+            }
+            &:before {
+                border-color: var(--pm-bg-dark);
+            }
+        }
+        &__section-body {
+            padding: 12px 0 48px;
+        }
+        .button:not(.enrollment__button) {
+            display: block;
+        }
     }
 }

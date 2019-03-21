@@ -87,7 +87,7 @@ export const originalApplicantUISchema = {
             "weight"
         ],
         fullName: {
-            classNames: "w-full md:w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "Your lovely full name",
             "ui:options": {
@@ -95,7 +95,7 @@ export const originalApplicantUISchema = {
             }
         },
         dateOfBirth: {
-            classNames: "w-full md:w-1-4 inline-flex mb-lg",
+            classNames: "w-1-2 md:w-1-4 inline-flex md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. 03/19/1986",
             "ui:options": {
@@ -103,7 +103,7 @@ export const originalApplicantUISchema = {
             }
         },
         gender: {
-            classNames: "w-full md:w-1-4 inline-flex mb-lg",
+            classNames: "w-1-2 md:w-1-4 inline-flex md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. Female",
             "ui:options": {
@@ -111,7 +111,7 @@ export const originalApplicantUISchema = {
             }
         },
         heightFt: {
-            classNames: "w-1-4 inline-flex mb-lg",
+            classNames: "w-1-3 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "5 ft.",
             "ui:options": {
@@ -119,7 +119,7 @@ export const originalApplicantUISchema = {
             }
         },
         heightIn: {
-            classNames: "w-1-4 inline-flex mb-lg",
+            classNames: "w-1-3 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "10 in.",
             "ui:options": {
@@ -127,7 +127,7 @@ export const originalApplicantUISchema = {
             }
         },
         weight: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-1-3 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "160 lbs.",
             "ui:options": {
@@ -145,7 +145,7 @@ export const originalApplicantUISchema = {
             "weight"
         ],
         fullName: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-full md:w-1-2 inline-flex md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "Your lovely full name",
             "ui:options": {
@@ -153,7 +153,7 @@ export const originalApplicantUISchema = {
             }
         },
         dateOfBirth: {
-            classNames: "w-1-4 inline-flex mb-lg",
+            classNames: "w-1-2 md:w-1-4 inline-flex md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. 03/19/1986",
             "ui:options": {
@@ -161,7 +161,7 @@ export const originalApplicantUISchema = {
             }
         },
         gender: {
-            classNames: "w-1-4 inline-flex mb-lg",
+            classNames: "w-1-2 md:w-1-4 inline-flex md:mb-lg",
             "ui:widget": "text",
             "ui:placeholder": "eg. Female",
             "ui:options": {
@@ -169,7 +169,7 @@ export const originalApplicantUISchema = {
             }
         },
         heightFt: {
-            classNames: "w-1-4 inline-flex mb-lg",
+            classNames: "w-1-3 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "5 ft.",
             "ui:options": {
@@ -177,7 +177,7 @@ export const originalApplicantUISchema = {
             }
         },
         heightIn: {
-            classNames: "w-1-4 inline-flex mb-lg",
+            classNames: "w-1-3 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "10 in.",
             "ui:options": {
@@ -185,7 +185,7 @@ export const originalApplicantUISchema = {
             }
         },
         weight: {
-            classNames: "w-1-2 inline-flex mb-lg",
+            classNames: "w-1-3 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "160 lbs.",
             "ui:options": {

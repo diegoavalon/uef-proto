@@ -42,7 +42,8 @@ class Contact extends Component {
     render() {    
         return (
             <Step
-                stepNum="Step 3/4" 
+                classNames="Contact"
+                stepNum="Step 3/4"
                 title="How can we contact you?"
                 subtitle="We make sure you're getting the right plan, we'll let you know if there's anything better."
             >
@@ -54,7 +55,7 @@ class Contact extends Component {
                     onSubmit={this.handleFormSubmit.bind(this)}
                     onError={log("errors")}>
 
-                    <div className="flex justify-between text-white mt-neg-xxl">
+                    <div className="segment__actions flex justify-between text-white mt-xl">
                         <Link to="/applicants" className="button button-xlg secondary" onClick={() => this.props.transitionToStep("Information")}>
                             Back
                         </Link>
