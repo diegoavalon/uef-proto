@@ -8,7 +8,7 @@ import Form from '../../Form';
 import { processForm, log } from '../../utilities';
 import { widgets } from '../../widgets';
 
-import { originalEligibilitySchema, originalEligibilityUISchema, originalMobileEligibilityUISchema } from './config';
+import { originalEligibilitySchema, originalEligibilityUISchema } from './config';
 
 const initialState = processForm(originalEligibilitySchema, originalEligibilityUISchema, originalEligibilitySchema, originalEligibilityUISchema);
 
@@ -92,7 +92,7 @@ class Eligibility extends Component {
                 subtitle="Let’s quickly see if you are eligible."
                 illustration={illustration}
             >   
-            <div>{this.props.isMobile ? 'Is Mobile' : 'Is Not Mobile'}</div>
+            
                 <Form className="segment__form" 
                     schema={this.state.schema}
                     uiSchema={this.state.uiSchema}
