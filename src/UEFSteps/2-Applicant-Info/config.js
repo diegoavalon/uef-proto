@@ -111,7 +111,7 @@ export const originalApplicantUISchema = {
             }
         },
         heightFt: {
-            classNames: "w-1-3 inline-flex md:mb-lg",
+            classNames: "w-1-3 md:w-1-4 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "5 ft.",
             "ui:options": {
@@ -119,7 +119,7 @@ export const originalApplicantUISchema = {
             }
         },
         heightIn: {
-            classNames: "w-1-3 inline-flex md:mb-lg",
+            classNames: "w-1-3 md:w-1-4 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "10 in.",
             "ui:options": {
@@ -127,7 +127,7 @@ export const originalApplicantUISchema = {
             }
         },
         weight: {
-            classNames: "w-1-3 inline-flex md:mb-lg",
+            classNames: "w-1-3 md:w-1-2 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "160 lbs.",
             "ui:options": {
@@ -169,7 +169,7 @@ export const originalApplicantUISchema = {
             }
         },
         heightFt: {
-            classNames: "w-1-3 inline-flex md:mb-lg",
+            classNames: "w-1-3 md:w-1-4 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "5 ft.",
             "ui:options": {
@@ -177,7 +177,7 @@ export const originalApplicantUISchema = {
             }
         },
         heightIn: {
-            classNames: "w-1-3 inline-flex md:mb-lg",
+            classNames: "w-1-3 md:w-1-4 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "10 in.",
             "ui:options": {
@@ -185,7 +185,7 @@ export const originalApplicantUISchema = {
             }
         },
         weight: {
-            classNames: "w-1-3 inline-flex md:mb-lg",
+            classNames: "w-1-3 md:w-1-2 inline-flex md:mb-lg",
             "ui:widget": "updown",
             "ui:placeholder": "160 lbs.",
             "ui:options": {

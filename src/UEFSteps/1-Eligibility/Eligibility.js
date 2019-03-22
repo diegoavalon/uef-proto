@@ -8,7 +8,7 @@ import Form from '../../Form';
 import { processForm, log } from '../../utilities';
 import { widgets } from '../../widgets';
 
-import { originalEligibilitySchema, originalEligibilityUISchema } from './config';
+import { originalEligibilitySchema, originalEligibilityUISchema, originalEligibilityMobileUISchema } from './config';
 
 const initialState = processForm(originalEligibilitySchema, originalEligibilityUISchema, originalEligibilitySchema, originalEligibilityUISchema);
 
@@ -21,26 +21,55 @@ class Eligibility extends Component {
         };
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        const schema = { ...this.state.schema };
+        const uiSchema = { ...this.state.uiSchema };
+
+        // if (this.props.isMobile) {
+        //     const newState = processForm(originalEligibilitySchema, originalEligibilityMobileUISchema, schema, uiSchema, this.state.formData);
+        //     this.setState(newState);
+        // } else {
+        //     const newState = processForm(originalEligibilitySchema, originalEligibilityUISchema, schema, uiSchema, this.state.formData);
+        //     this.setState(newState);
+        // }
+        // return;
+    }
+
     handleChange(data) {
         const schema = { ...this.state.schema };
         const uiSchema = { ...this.state.uiSchema };
         const { formData } = data;
-    
-        const newState = processForm(originalEligibilitySchema, originalEligibilityUISchema, schema, uiSchema, formData);
-    
-        this.setState(newState);
+        
+        if (!this.state.formBodyEl) {
+            const formBody = document.querySelector('.step__body');
 
+            if (formBody) {
+                const formBodyRefEl = formBody.querySelector('.wrapper');
+                
+                this.setState({
+                    formBodyEl: formBody,
+                    formBodyRefEl: formBodyRefEl
+                });
+            }
+        }
+            
         const lastQuestionAnsweredCond = data.formData.hasOwnProperty('existingInsurance') && data.formData.existingInsurance !== undefined;
-
         if (lastQuestionAnsweredCond) {
             console.log('Hit the last question');
             console.log(formData);
             this.setState({isFormComplete: true});
         }
+
+        const newState = processForm(originalEligibilitySchema, originalEligibilityUISchema, schema, uiSchema, formData);
+        
+        this.setState(newState);
+        if (this.state.formBodyEl) this.setFormBodyHeight();
     }
     
-    handleStepChange() {
+    setFormBodyHeight() {
+        this.state.formBodyEl.style.height = `${this.state.formBodyRefEl.offsetHeight}px`;
         
+        return;
     }
     
     handleFormSubmit(data) {
@@ -91,6 +120,7 @@ class Eligibility extends Component {
                 title="Enrollment is simple."
                 subtitle="Let’s quickly see if you are eligible."
                 illustration={illustration}
+                ref={el => this.formEl = el}
             >   
             
                 <Form className="segment__form" 
@@ -102,16 +132,18 @@ class Eligibility extends Component {
                     onSubmit={this.handleFormSubmit.bind(this)}
                     onError={log("errors")}>
 
+                    {this.props.isMobile ? 'Mobile' : 'Desktop'}
                     <CSSTransition
                         in={this.state.isFormComplete}
                         classNames="slide-up"
-                        timeout={1000}
+                        timeout={1500}
                         unmountOnExit
                     >
-                        <div className="segment__actions flex justify-end text-white">
-                            <Link to="/applicants" className="button button-xlg primary mt-lg" onClick={() => this.props.transitionToStep("Information")}>
+                        <div className="segment__actions flex justify-between items-center text-white">
+                            <p className="bodyMedium pr-md">Wonderful! You are eligible.</p>
+                            <Link to="/applicants" className="button button-xlg primary" onClick={() => this.props.transitionToStep("Information")}>
                                 <span className="mr-sm">Next</span>
-                                Applicant Info
+                                Applicants
                             </Link>
                         </div>
                     </CSSTransition>

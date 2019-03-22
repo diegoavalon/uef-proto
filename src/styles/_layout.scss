@@ -64,13 +64,15 @@
     flex-direction: column;
     position: relative;
     padding-top: 80px;
+    width: 100%;
     transition: opacity 1s;
     @media screen and (min-width: 800px) {
         padding-top: 170px;
     }
     &__headline {
-        opacity: 0;
-        animation: fadeFromRight 1s var(--cubic-bezier) forwards;
+        position: relative;
+        // opacity: 0;
+        // animation: fadeFromRight 1s var(--cubic-bezier) forwards;
         &:before {
             content: attr(data-step-num);
             background-color: var(--pm-green100);
@@ -110,6 +112,7 @@
     }
     &__body {
         position: relative;
+        transition: .5s height var(--cubic-bezier);
     }
     &__gradient {
         position: absolute;
@@ -140,10 +143,10 @@ legend {
         position: absolute;
         top: 25px;
         right: 0;
-        width: 100%;
+        width: 40px;
         border-bottom: 3px dotted var(--pm-green300);
         height: 3px;
-        background: #22292f;
+        background: var(--pm-bg-dark);
         @media screen and (min-width: 1440px) {
             right: 100%;
             transform: translateX(-28px);
@@ -166,14 +169,22 @@ legend {
         left: 0;
         width: 100%;
         background: var(--pm-bg-dark);
-        padding: 20px 0;
         color: var(--pm-white);
-        box-shadow: 0 -12px 17px 2px rgba(33, 33, 33, .08), 0 -5px 22px 4px rgba(33, 33, 33, .08), 0 -7px 8px -4px rgba(33, 33, 33, .12);
+        box-shadow: 0 -4px 12px 0 rgba(33, 33, 33, .18), 0 -5px 10px -2px rgba(33, 33, 33, .18), 0 -3px 15px 0 rgba(33, 33, 33, .22);        
         z-index: 200;
-        overflow: auto;
+        .wrapper {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            z-index: 10;
+        }
     }
     .segment__actions {
-        justify-content: center;
+        border-top: 2px dotted;
+        padding-top: 20px;
+        margin-top: 20px;
+        &.slide-up-enter-active {
+            transition-delay: 1s !important;
+        }
         .button.primary {
             background-color: var(--pm-teal500);
         }
@@ -211,6 +222,7 @@ legend {
                 .wrapper {
                     max-height: initial !important;
                     width: 100%;
+                    background: none;
                 }
             }
         }
@@ -224,6 +236,14 @@ legend {
         }
         .eh-text__label {
             color: var(--pm-bg-dark);
+        }
+    }
+    .GestureScroll {
+        animation: fadeInOut 5s var(--cubic-bezier) infinite;
+        svg {
+            position: absolute;
+            transform: translateY(-60px);
+            z-index: -10;
         }
     }
 }

@@ -47,6 +47,8 @@
             padding-bottom: 80px;
             max-width: 500px;
             .wrapper {
+                position: sticky;
+                top: -120px;
                 max-height: initial !important;
                 padding: 0;
                 margin: 0;

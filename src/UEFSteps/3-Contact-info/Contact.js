@@ -44,8 +44,8 @@ class Contact extends Component {
             <Step
                 classNames="Contact"
                 stepNum="Step 3/4"
-                title="How can we contact you?"
-                subtitle="We make sure you're getting the right plan, we'll let you know if there's anything better."
+                title="How do we contact you?"
+                subtitle="We want to make sure you're finding the best health plan."
             >
                 <Form schema={this.state.schema}
                     uiSchema={this.state.uiSchema}

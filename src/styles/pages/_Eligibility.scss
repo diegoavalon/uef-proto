@@ -4,19 +4,16 @@
     height: 100vh;
     overflow: hidden;
     fieldset {
-        transition: all 2s;
         position: relative;
         .form-group {
-            transition: all 2s;
-            transition-delay: 1.5s;
             &:not(:last-child) {
                 position: absolute;
                 z-index: -10;
-                animation: fadeOut 700ms forwards;
+                animation: stepOut 300ms forwards;
             }
             &:last-child {
                 opacity: 0;
-                animation: fadeIn 500ms 1000ms forwards;
+                animation: stepIn 500ms 1000ms forwards;
             }
             &:first-child:last-child {
                 opacity: 1;
@@ -33,12 +30,7 @@
                 color: var(--pm-bg);
             }
         }
-    }
-    .segment__actions {
-        .button.primary {
-            margin: 20px 20px 8px 20px;
-        }
-    }
+    }  
     @media screen and (min-width: 800px) {
         .question-fancy {
             &__text-col {

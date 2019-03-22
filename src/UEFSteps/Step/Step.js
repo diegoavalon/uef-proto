@@ -14,12 +14,19 @@ class Step extends Component {
   }
   
   componentDidMount() {
-    this.typedTitle = new Typed(this.titleEl, {
+    this.typedTitle = new Typed(this.titleEl.firstElementChild, {
       strings: [`<h1 class="step__title text-display mb-sm md:mb-base">${this.props.title.trim()}</h1><h2 class="h2 font-normal">${this.props.subtitle}</h2>`],
       typeSpeed: 10,
       showCursor: false,
       onComplete: () => this.setState({ isTypingComplete: true })
     });
+
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+      this.titleEl.style.opacity = 1 - (scrollPos/200);
+      this.titleEl.style.transform = `scale(${1 - (scrollPos/2000)})`;
+    })
   }
   
   componentWillUnmount() {
@@ -46,8 +53,9 @@ class Step extends Component {
                       <div 
                         className="step__headline w-full md:w-3-5 pb-xxxl md:pb-xxl"
                         data-step-num={this.props.stepNum}
+                        ref={el => this.titleEl = el}
                       >
-                          <div ref={el => this.titleEl = el}></div>
+                          <div></div>
                       </div>
 
                       {this.props.illustration && <CSSTransition
