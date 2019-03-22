@@ -40,8 +40,8 @@ $width: 550px; // Change Me
       
         // Modify Chrome's pale yellow background on auto-fill
         &:-webkit-autofill {
-            -webkit-box-shadow: 0 0 0px 1000px var(--pm-white) inset;
-            -webkit-text-fill-color: var(--pm-bg-dark) !important;
+            // -webkit-box-shadow: 0 0 0px 1000px var(--pm-white) inset;
+            // -webkit-text-fill-color: var(--pm-bg-dark) !important;
         }
     }
     &__select {

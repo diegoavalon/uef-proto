@@ -55,7 +55,7 @@ function CheckboxWidget(props) {
       <div className="toggle-fancy w-full flex flex-col sm:flex-row items-center py-lg">
         <div className="toggle-fancy__icon-col self-start">
           <h1 className="mb-sm">
-            <i className="material-icons text-4xl">{props.options.icon}</i>
+            ICON
           </h1>
         </div>
         <div className="toggle-fancy__text-col sm:mx-md">

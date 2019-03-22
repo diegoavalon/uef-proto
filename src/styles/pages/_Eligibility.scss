@@ -32,6 +32,16 @@
         }
     }  
     @media screen and (min-width: 800px) {
+        overflow: auto;
+        .step__body {
+            height: auto !important;
+        }
+        fieldset .form-group {
+            position: relative !important;
+            opacity: 1 !important;
+            animation: none !important;
+            z-index: 10 !important;
+        }
         .question-fancy {
             &__text-col {
                 .h2 {

@@ -36,7 +36,7 @@ class Step extends Component {
   render() {
       return (
           <div className={this.props.classNames ? `modal ${this.props.classNames}` : 'modal'}>
-              <header className="modal__header flex justify-center">
+              <header className="modal__header">
                 <div className="wrapper">
                   <Link to="/">
                     <svg className="cursor-pointer" width="125" height="28" viewBox="0 0 515 116" xmlns="http://www.w3.org/2000/svg">

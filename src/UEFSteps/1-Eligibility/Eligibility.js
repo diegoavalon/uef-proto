@@ -8,31 +8,63 @@ import Form from '../../Form';
 import { processForm, log } from '../../utilities';
 import { widgets } from '../../widgets';
 
-import { originalEligibilitySchema, originalEligibilityUISchema, originalEligibilityMobileUISchema } from './config';
+import { originalEligibilityMobileSchema, originalEligibilityMobileUISchema } from './mobileConfig';
+import { originalEligibilityDesktopSchema, originalEligibilityDesktopUISchema } from './desktopConfig';
 
-const initialState = processForm(originalEligibilitySchema, originalEligibilityUISchema, originalEligibilitySchema, originalEligibilityUISchema);
+const initialMobileState = processForm(originalEligibilityMobileSchema, originalEligibilityMobileUISchema, originalEligibilityMobileSchema, originalEligibilityMobileUISchema);
+const initialDesktopState = processForm(originalEligibilityDesktopSchema, originalEligibilityDesktopUISchema, originalEligibilityDesktopSchema, originalEligibilityDesktopUISchema);
+
+class DesktopForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            ...initialDesktopState
+        }
+    }
+    handleChange(data) {
+        const schema = { ...this.state.schema };
+        const uiSchema = { ...this.state.uiSchema };
+        const { formData } = data;
+    
+        const newState = processForm(originalEligibilityDesktopSchema, originalEligibilityDesktopUISchema, schema, uiSchema, formData);
+    
+        this.setState(newState);
+        console.log(formData);
+    }
+    handleFormSubmit(data) {
+        const { formData } = data;
+    
+        console.log('This is the form info we will submit', formData);
+    }
+    render() {
+        return (
+            <Form className="segment__form" 
+                schema={this.state.schema}
+                uiSchema={this.state.uiSchema}
+                widgets={widgets}
+                formData={this.state.formData}
+                onChange={this.handleChange.bind(this)}
+                onSubmit={this.handleFormSubmit.bind(this)}
+                onError={log("errors")}>
+
+                <div className="flex justify-end text-white mt-lg">
+                    <Link to="/applicants" className="button button-xlg primary mt-lg" onClick={() => this.props.transitionToStep("Information")}>
+                        <span className="mr-sm">Next</span>
+                        Applicant Info
+                    </Link>
+                </div>
+            </Form>
+        );
+    }
+}
 
 class Eligibility extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ...initialState,
+            ...initialMobileState,
             isFormComplete: false
         };
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        const schema = { ...this.state.schema };
-        const uiSchema = { ...this.state.uiSchema };
-
-        // if (this.props.isMobile) {
-        //     const newState = processForm(originalEligibilitySchema, originalEligibilityMobileUISchema, schema, uiSchema, this.state.formData);
-        //     this.setState(newState);
-        // } else {
-        //     const newState = processForm(originalEligibilitySchema, originalEligibilityUISchema, schema, uiSchema, this.state.formData);
-        //     this.setState(newState);
-        // }
-        // return;
     }
 
     handleChange(data) {
@@ -60,7 +92,8 @@ class Eligibility extends Component {
             this.setState({isFormComplete: true});
         }
 
-        const newState = processForm(originalEligibilitySchema, originalEligibilityUISchema, schema, uiSchema, formData);
+        const newState = processForm(originalEligibilityMobileSchema, originalEligibilityMobileUISchema, schema, uiSchema, formData);
+        console.log(formData);
         
         this.setState(newState);
         if (this.state.formBodyEl) this.setFormBodyHeight();
@@ -121,34 +154,36 @@ class Eligibility extends Component {
                 subtitle="Let’s quickly see if you are eligible."
                 illustration={illustration}
                 ref={el => this.formEl = el}
-            >   
-            
-                <Form className="segment__form" 
-                    schema={this.state.schema}
-                    uiSchema={this.state.uiSchema}
-                    widgets={widgets}
-                    formData={this.state.formData}
-                    onChange={this.handleChange.bind(this)}
-                    onSubmit={this.handleFormSubmit.bind(this)}
-                    onError={log("errors")}>
+            >
+                {this.props.isMobile ? 
+                    <Form className="segment__form" 
+                        schema={this.state.schema}
+                        uiSchema={this.state.uiSchema}
+                        widgets={widgets}
+                        formData={this.state.formData}
+                        onChange={this.handleChange.bind(this)}
+                        onSubmit={this.handleFormSubmit.bind(this)}
+                        onError={log("errors")}>
 
-                    {this.props.isMobile ? 'Mobile' : 'Desktop'}
-                    <CSSTransition
-                        in={this.state.isFormComplete}
-                        classNames="slide-up"
-                        timeout={1500}
-                        unmountOnExit
-                    >
-                        <div className="segment__actions flex justify-between items-center text-white">
-                            <p className="bodyMedium pr-md">Wonderful! You are eligible.</p>
-                            <Link to="/applicants" className="button button-xlg primary" onClick={() => this.props.transitionToStep("Information")}>
-                                <span className="mr-sm">Next</span>
-                                Applicants
-                            </Link>
-                        </div>
-                    </CSSTransition>
-                    
-                </Form>
+                        {this.props.isMobile ? 'Mobile' : 'Desktop'}
+                        <CSSTransition
+                            in={this.state.isFormComplete}
+                            classNames="slide-up"
+                            timeout={1500}
+                            unmountOnExit
+                        >
+                            <div className="segment__actions flex justify-between items-center text-white">
+                                <p className="bodyMedium pr-md">Wonderful! You are eligible.</p>
+                                <Link to="/applicants" className="button button-xlg primary" onClick={() => this.props.transitionToStep("Information")}>
+                                    <span className="mr-sm">Next</span>
+                                    Applicants
+                                </Link>
+                            </div>
+                        </CSSTransition>
+                        
+                    </Form> :
+                    <DesktopForm />
+                }
 
             </Step>
         );
