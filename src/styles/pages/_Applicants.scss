@@ -1,10 +1,6 @@
+.Eligiblity,
 .Applicant,
 .Contact {
-    .modal__header {
-        // position: fixed;
-        // width: 100%;
-        // z-index: 1000;
-    }
     .step {
         position: fixed;
         left: 50%;
@@ -14,10 +10,6 @@
         position: absolute;
         top: 40vh;
         bottom: initial;
-        .wrapper {
-            // overflow: auto;
-            background: var(--pm-bg-dark);
-        }
     }
     .segment__actions {
         justify-content: space-between;

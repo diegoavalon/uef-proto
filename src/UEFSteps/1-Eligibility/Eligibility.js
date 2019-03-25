@@ -72,16 +72,14 @@ class Eligibility extends Component {
         const uiSchema = { ...this.state.uiSchema };
         const { formData } = data;
         
-        if (!this.state.formBodyEl) {
+        if (!this.formBodyEl) {
             const formBody = document.querySelector('.step__body');
 
             if (formBody) {
                 const formBodyRefEl = formBody.querySelector('.wrapper');
                 
-                this.setState({
-                    formBodyEl: formBody,
-                    formBodyRefEl: formBodyRefEl
-                });
+                this.formBodyEl = formBody;
+                this.formBodyRefEl = formBodyRefEl;
             }
         }
             
@@ -96,11 +94,11 @@ class Eligibility extends Component {
         console.log(formData);
         
         this.setState(newState);
-        if (this.state.formBodyEl) this.setFormBodyHeight();
+        if (this.formBodyEl) this.setFormBodyHeight();
     }
     
     setFormBodyHeight() {
-        this.state.formBodyEl.style.height = `${this.state.formBodyRefEl.offsetHeight}px`;
+        this.formBodyEl.style.height = `${this.formBodyRefEl.offsetHeight}px`;
         
         return;
     }
@@ -116,19 +114,19 @@ class Eligibility extends Component {
             <svg className="step__illustration" width="583" height="388" viewBox="0 0 583 388" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fillRule="evenodd">
                     <g>
-                    <circle stroke="#2E3B40" cx="448" cy="41" r="19"/>
+                    <circle stroke="var(--pm-bg-dark)" cx="448" cy="41" r="19"/>
                     <path d="M486.28573 5.29876L481.66082.72629c-.45784-.46034-1.08365-.72178-1.73838-.72623-.65473-.00445-1.28416.24846-1.74841.70254L449.1417 29.01775l-12.2764-12.1691c-.45587-.45488-1.07685-.71296-1.72625-.71743-.6494-.00447-1.27399.24503-1.7363.69359l-4.67324 4.54862c-.96317.94303-.97398 2.47317-.02424 3.42927l18.64468 18.47982c.95884.94727 2.51465.9579 3.48679.02383L486.2615 8.72803c.46805-.45028.73388-1.06575.73843-1.70968.00455-.64392-.25256-1.26296-.7142-1.7196z" fill="#ADCE45" fillRule="nonzero"/>
-                    <rect fill="#EBEFF2" fillRule="nonzero" y="31" width="344" height="39" rx="19.5"/>
-                    <rect fill="#EBEFF2" fillRule="nonzero" y="99" width="344" height="39" rx="19.5"/>
-                    <rect fill="#EBEFF2" fillRule="nonzero" x="1" y="167" width="344" height="39" rx="19.5"/>
-                    <rect fill="#EBEFF2" fillRule="nonzero" x="1" y="235" width="344" height="39" rx="19.5"/>
-                    <rect stroke="#2E3B40" x="11" y="21" width="344" height="39" rx="19.5"/>
-                    <rect stroke="#2E3B40" x="11" y="89" width="344" height="39" rx="19.5"/>
-                    <rect stroke="#2E3B40" x="12" y="157" width="344" height="39" rx="19.5"/>
-                    <rect stroke="#2E3B40" x="12" y="225" width="344" height="39" rx="19.5"/>
-                    <circle stroke="#2E3B40" cx="448" cy="109" r="19"/>
-                    <circle stroke="#2E3B40" cx="448" cy="177" r="19"/>
-                    <circle stroke="#2E3B40" cx="448" cy="245" r="19"/>
+                    <rect fill="var(--pm-bg)" fillRule="nonzero" y="31" width="344" height="39" rx="19.5"/>
+                    <rect fill="var(--pm-bg)" fillRule="nonzero" y="99" width="344" height="39" rx="19.5"/>
+                    <rect fill="var(--pm-bg)" fillRule="nonzero" x="1" y="167" width="344" height="39" rx="19.5"/>
+                    <rect fill="var(--pm-bg)" fillRule="nonzero" x="1" y="235" width="344" height="39" rx="19.5"/>
+                    <rect stroke="var(--pm-bg-dark)" x="11" y="21" width="344" height="39" rx="19.5"/>
+                    <rect stroke="var(--pm-bg-dark)" x="11" y="89" width="344" height="39" rx="19.5"/>
+                    <rect stroke="var(--pm-bg-dark)" x="12" y="157" width="344" height="39" rx="19.5"/>
+                    <rect stroke="var(--pm-bg-dark)" x="12" y="225" width="344" height="39" rx="19.5"/>
+                    <circle stroke="var(--pm-bg-dark)" cx="448" cy="109" r="19"/>
+                    <circle stroke="var(--pm-bg-dark)" cx="448" cy="177" r="19"/>
+                    <circle stroke="var(--pm-bg-dark)" cx="448" cy="245" r="19"/>
                     <path d="M486.28573 74.29875l-4.62491-4.57246c-.45784-.46034-1.08365-.72178-1.73838-.72623-.65473-.00445-1.28416.24846-1.74841.70254L449.1417 98.01775l-12.2764-12.1691c-.45587-.45488-1.07685-.71296-1.72625-.71743-.6494-.00447-1.27399.24503-1.7363.69359l-4.67324 4.54862c-.96317.94303-.97398 2.47317-.02424 3.42927l18.64468 18.47982c.95884.94727 2.51465.9579 3.48679.02383l35.42476-34.57832c.46805-.45028.73388-1.06576.73843-1.70968.00455-.64392-.25256-1.26296-.7142-1.7196zM486.28575 211.29876l-4.62492-4.57247c-.45783-.46034-1.08364-.72178-1.73837-.72623-.65474-.00445-1.28416.24846-1.74842.70254l-29.03232 28.31517-12.2764-12.1691c-.45588-.45489-1.07686-.71296-1.72625-.71744-.6494-.00447-1.274.24503-1.7363.6936l-4.67325 4.54862c-.96317.94302-.97398 2.47317-.02424 3.42927l18.64468 18.4798c.95885.94727 2.51465.9579 3.4868.02384l35.42477-34.57836c.46804-.45028.73386-1.06575.73841-1.70966.00455-.64391-.25255-1.26295-.71419-1.71958z" fill="#ADCE45" fillRule="nonzero"/>
                     </g>
                     <g transform="translate(505 167)" fillRule="nonzero">
@@ -153,7 +151,6 @@ class Eligibility extends Component {
                 title="Enrollment is simple."
                 subtitle="Let’s quickly see if you are eligible."
                 illustration={illustration}
-                ref={el => this.formEl = el}
             >
                 {this.props.isMobile ? 
                     <Form className="segment__form" 
@@ -165,7 +162,6 @@ class Eligibility extends Component {
                         onSubmit={this.handleFormSubmit.bind(this)}
                         onError={log("errors")}>
 
-                        {this.props.isMobile ? 'Mobile' : 'Desktop'}
                         <CSSTransition
                             in={this.state.isFormComplete}
                             classNames="slide-up"

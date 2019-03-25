@@ -16,7 +16,7 @@ class Step extends Component {
   componentDidMount() {
     this.typedTitle = new Typed(this.titleEl.firstElementChild, {
       strings: [`<h1 class="step__title text-display mb-sm md:mb-base">${this.props.title.trim()}</h1><h2 class="h2 font-normal">${this.props.subtitle}</h2>`],
-      typeSpeed: 10,
+      typeSpeed: 40,
       showCursor: false,
       onComplete: () => this.setState({ isTypingComplete: true })
     });

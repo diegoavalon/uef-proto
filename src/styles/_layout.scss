@@ -3,7 +3,7 @@
     backface-visibility: hidden;
     position: relative;
     background: var(--pm-white);
-    transition: opacity .5s ease-in-out;
+    transition: opacity .5s var(--cubic-bezier);
     z-index: 100;
 
     color: var(--pm-bg-dark);
@@ -37,7 +37,7 @@
         &.primary {
             background: var(--pm-bg-dark);
             span {
-                color: var(--pm-green300);
+                color: var(--pm-teal300);
             }
             &:hover {
                 background: var(--pm-bg-dark);
@@ -46,8 +46,8 @@
             }
         }
         &.secondary {
-            border: 1px solid var(--pm-green300);
-            color: var(--pm-green300);
+            border: 1px solid var(--pm-teal300);
+            color: var(--pm-teal300);
             span {
                 color: var(--pm-bg-dark);
             }
@@ -147,7 +147,6 @@ legend {
         width: 40px;
         border-bottom: 3px dotted var(--pm-green300);
         height: 3px;
-        background: var(--pm-bg-dark);
         @media screen and (min-width: 1440px) {
             right: 100%;
             transform: translateX(-28px);
@@ -179,48 +178,48 @@ legend {
             z-index: 10;
         }
     }
-    .segment__actions {
-        border-top: 2px dotted;
-        padding-top: 20px;
-        margin-top: 20px;
-        &.slide-up-enter-active {
-            transition-delay: 1s !important;
-        }
-        .button.primary {
-            background-color: var(--pm-teal500);
-        }
-        .button span {
-            color: var(--pm-bg-dark);
-        }
-        .button.secondary {
-            color: var(--pm-teal300);
-            border: none;
-            padding-left: 0;
-            &::before {
-                content: '←';
-                margin-right: 8px;
-            }
-        }
-    }
-    .eh-text__label {
-        color: var(--pm-bg);
-    }
-    .eh-text__input {
-        color: var(--pm-bg);
-    }
-    legend:before {
-        background: none;
-    }
     @media screen and (min-width: 200px) and (max-width: 799px) {
         .eh-text__group .eh-text__input:focus::-webkit-input-placeholder {
             color: var(--pm-teal300);
-        }   
+        }
+        .eh-text__label {
+            color: var(--pm-bg);
+        }
+        .eh-text__input {
+            color: var(--pm-bg);
+        }
+        legend:before {
+            background: none;
+        }
+        .segment__actions {
+            border-top: 2px dotted;
+            padding-top: 20px;
+            margin-top: 20px;
+            &.slide-up-enter-active {
+                transition-delay: 1s !important;
+            }
+            .button.primary {
+                background-color: var(--pm-teal500);
+            }
+            .button span {
+                color: var(--pm-bg-dark);
+            }
+            .button.secondary {
+                color: var(--pm-teal300);
+                border: none;
+                padding-left: 0;
+                &::before {
+                    content: '←';
+                    margin-right: 8px;
+                }
+            }
+        }
     }
     @media screen and (min-width: 800px) {
         &:not(.Summary) {
             .step__body {
                 position: relative;
-                background: none;
+                background: var(--pm-white);
                 box-shadow: none;
                 padding: 0;
                 color: var(--pm-bg-dark);
