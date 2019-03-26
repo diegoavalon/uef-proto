@@ -1,0 +1,321 @@
+@charset "UTF-8";
+
+#shepherdModalOverlayContainer {
+	-ms-filter: "progid:dximagetransform.microsoft.gradient.alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	height: 100vh;
+	left: 0;
+	opacity: .5;
+	position: fixed;
+	top: 0;
+	transition: all .3s ease-out;
+	width: 100vw;
+	z-index: 9997
+}
+
+#shepherdModalOverlayContainer #shepherdModalMask,
+#shepherdModalOverlayContainer #shepherdModalMaskRect {
+	height: 100vh;
+	width: 100vw
+}
+
+.shepherd-modal.shepherd-enabled {
+	position: relative;
+	z-index: 9998
+}
+
+.tippy-arrow:before {
+	content: '';
+    position: absolute;
+    right: 4px;
+    top: -5px;
+	margin: auto;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--pm-primary300);
+	font-size: 18px;
+	animation: 1.6s playShadow ease-out infinite;
+	display: flex;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.tippy-arrow:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 50%;
+	z-index: -1;
+	pointer-events: none;
+	transition: 0.35s;
+}
+
+@keyframes playShadow {
+	0% {
+		box-shadow: 0 0 0 0px rgba(var(--pm-primary300RGB), 0.3), 0 0 0 0px rgba(var(--pm-primary300RGB), 0.2);
+		transform: scale(1);
+	}
+	18% {
+		box-shadow: 0 0 0 0px rgba(var(--pm-primary300RGB), 0.3), 0 0 0 0px rgba(var(--pm-primary300RGB), 0.2);
+	}
+	35% {
+		transform: scale(1.08);
+	}
+	76% {
+		transform: scale(0.96);
+	}
+	100% {
+		box-shadow: 0 0 0 8px rgba(var(--pm-primary300RGB), 0), 0 0 0 12px rgba(var(--pm-primary300RGB), 0);
+		transform: scale(1);
+	}
+}
+
+.shepherd-active {
+    // overflow: hidden;
+}
+
+.shepherd-active.shepherd-modal-is-visible :not(.shepherd-target) {
+	pointer-events: none
+}
+
+.shepherd-active.shepherd-modal-is-visible .shepherd-button,
+.shepherd-active.shepherd-modal-is-visible .shepherd-button *,
+.shepherd-active.shepherd-modal-is-visible .shepherd-cancel-link,
+.shepherd-active.shepherd-modal-is-visible .shepherd-cancel-link *,
+.shepherd-active.shepherd-modal-is-visible .shepherd-element,
+.shepherd-active.shepherd-modal-is-visible .shepherd-element *,
+.shepherd-active.shepherd-modal-is-visible .shepherd-target,
+.shepherd-active.shepherd-modal-is-visible .shepherd-target * {
+	pointer-events: auto
+}
+
+.tippy-arrow {
+	transform: scale(1.6)
+}
+
+.tippy-popper {
+	z-index: 9999
+}
+
+.tippy-popper .tippy-arrow {
+	border: 16px solid transparent;
+	content: "";
+	display: block;
+	height: 0;
+	pointer-events: none;
+	position: absolute;
+	width: 0
+}
+
+.tippy-popper[x-placement^=top] {
+	margin-bottom: 16px
+}
+
+.tippy-popper[x-placement^=top] .tippy-arrow {
+	border-bottom: 0;
+	border-top-color: var(--pm-white);
+	left: calc(50% - 16px)
+}
+
+.tippy-popper[x-placement^=bottom] {
+	margin-top: 16px
+}
+
+.tippy-popper[x-placement^=bottom] .tippy-arrow {
+	border-bottom-color: var(--pm-white);
+	border-top: 0;
+	left: calc(50% - 16px)
+}
+
+.tippy-popper[x-placement^=left] {
+	margin-right: 16px
+}
+
+.tippy-popper[x-placement^=left] .tippy-arrow {
+	border-left-color: var(--pm-white);
+	border-right: 0;
+	margin-top: -16px;
+	top: calc(50% - 16px)
+}
+
+.tippy-popper[x-placement^=right] {
+	margin-left: 16px
+}
+
+.tippy-popper[x-placement^=right] .tippy-arrow {
+	border-left: 0;
+	border-right-color: var(--pm-white);
+	top: calc(50% - 16px)
+}
+
+.tippy-popper .tippy-tooltip {
+	background-color: transparent;
+	max-height: 100%;
+	max-width: 100%;
+	padding: 0;
+	width: 400px
+}
+
+.shepherd-element,
+.shepherd-element *,
+.shepherd-element:after,
+.shepherd-element :after,
+.shepherd-element:before,
+.shepherd-element :before {
+	box-sizing: border-box
+}
+
+.shepherd-element {
+    box-shadow: 0 16px 24px 2px rgba(33, 33, 33, .08), 0 6px 30px 5px rgba(33, 33, 33, .08), 0 8px 10px -5px rgba(33, 33, 33, .12);
+}
+
+.shepherd-element.shepherd-has-title .shepherd-content header {
+	background: var(--pm-grey);
+	padding: 1em
+}
+
+.shepherd-element .shepherd-content {
+    background: var(--pm-white);
+    border-radius: 5px;
+	font-size: inherit;
+	padding: 0
+}
+
+.shepherd-element .shepherd-content header {
+	*zoom: 1;
+	align-items: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	display: flex;
+	justify-content: center;
+	line-height: 2em;
+	padding: .75em .75em 0
+}
+
+.shepherd-element .shepherd-content header:after {
+	clear: both;
+	content: "";
+	display: table
+}
+
+.shepherd-element .shepherd-content header .shepherd-cancel-link {
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	vertical-align: middle
+}
+
+.shepherd-element .shepherd-content header .shepherd-title {
+	color: var(--pm-bg-dark);
+	display: flex;
+	flex: 1 0 auto;
+}
+
+.shepherd-element .shepherd-content header .shepherd-cancel-link {
+	color: hsla(0, 0%, 70.2%, .75);
+	font-size: 2em;
+	margin-left: auto;
+	text-decoration: none;
+	transition: color .5s ease
+}
+
+.shepherd-element .shepherd-content header .shepherd-cancel-link:before {
+	content: "×"
+}
+
+.shepherd-element .shepherd-content header .shepherd-cancel-link:hover {
+    // Todo add CSS variable hover state
+    color: rgba(0, 0, 0, .75)
+}
+
+.shepherd-element .shepherd-content .shepherd-text {
+    text-align: left;
+    color: var(--pm-bg-dark);
+	line-height: 1.3em;
+	padding: 20px;
+}
+
+.shepherd-element .shepherd-content .shepherd-text a,
+.shepherd-element .shepherd-content .shepherd-text a:active,
+.shepherd-element .shepherd-content .shepherd-text a:visited {
+	border-bottom: 1px dotted rgba(0, 0, 0, .75);
+	color: var(--pm-bg-dark);
+	text-decoration: none
+}
+
+.shepherd-element .shepherd-content .shepherd-text a:active:hover,
+.shepherd-element .shepherd-content .shepherd-text a:hover,
+.shepherd-element .shepherd-content .shepherd-text a:visited:hover {
+	border-bottom-style: solid
+}
+
+.shepherd-element .shepherd-content .shepherd-text p {
+	margin-top: 0
+}
+
+.shepherd-element .shepherd-content .shepherd-text p:last-child {
+	margin-bottom: 0
+}
+
+.shepherd-element .shepherd-content footer {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 0 .75em .75em
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: right
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons li {
+	display: inline;
+	margin: 0 .5em 0 0
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons li:last-child {
+	margin-right: 0
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button {
+	display: inline-block;
+	*display: inline;
+	vertical-align: middle;
+	*vertical-align: auto;
+	*zoom: 1;
+	background: var(--pm-secondary300);
+	border: 0;
+	border-radius: 3px;
+	color: hsla(0, 0%, 100%, .75);
+	cursor: pointer;
+	font-family: inherit;
+	font-size: .8em;
+	letter-spacing: .1em;
+	line-height: 1em;
+	padding: .75em 2em;
+	text-transform: uppercase;
+	transition: all .5s ease
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button:hover {
+	background: var(--pm-green200);
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button.shepherd-button-secondary {
+	background: #f1f2f3;
+    // Todo add CSS variable hover state
+    color: rgba(0, 0, 0, .75)
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button.shepherd-button-secondary:hover {
+	background: #d5d8dc;
+    // Todo add CSS variable hover state
+    color: rgba(0, 0, 0, .75)
+}

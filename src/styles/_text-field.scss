@@ -22,7 +22,7 @@ $width: 550px; // Change Me
             ~ label {
                 top: 0;
                 
-                color: var(--pm-teal300);
+                color: var(--pm-secondary300);
             }
         }
         &:focus {
@@ -30,7 +30,7 @@ $width: 550px; // Change Me
             ~ label {
                 top: 0;
                 
-                color: var(--pm-teal500);
+                color: var(--pm-secondary500);
             }
           
             ~ .eh-text__bar:before {
@@ -75,7 +75,7 @@ $width: 550px; // Change Me
             position: absolute;
             width: 100%;
             height: 150%;
-            background: var(--pm-teal500);
+            background: var(--pm-secondary500);
             transform: translateX(-100%);
             
         }

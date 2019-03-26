@@ -174,7 +174,7 @@
                 width: 100%;
                 height: 1px;
                 background: none;
-                border: 1px dotted var(--pm-teal500);
+                border: 1px dotted var(--pm-secondary500);
                 z-index: -1;
             }
         }
@@ -183,7 +183,7 @@
         }
     }
     &__button {
-        background: var(--pm-teal500);
+        background: var(--pm-secondary500);
         color: var(--pm-white);
     }
     .button:not(.enrollment__button) {
@@ -208,4 +208,8 @@
             display: block;
         }
     }
+}
+
+.guided-review {
+    background: red !important;
 }

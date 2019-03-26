@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import Shepherd from 'shepherd.js';
 
 import Step from '../Step/Step';
 import Form from '../../Form';
@@ -99,14 +100,57 @@ class Summary extends Component {
         console.log(formData);
     };
 
-    // handleStepChange = () {
-
-    // };
-
     handleFormSubmit = (data) => {
         const { formData } = data;
     
         console.log('This is the form info we will submit', formData);
+    };
+
+    beginGuidedReview = () => {
+        this.tour = new Shepherd.Tour({
+            defaultStepOptions: {
+              classes: 'guided-review12',
+            //   scrollTo: true
+            },
+            useModalOverlay: true
+        });
+
+        this.tour.addStep('purchase-Health', {
+            title: 'Your Health Plan',
+            text: 'Here is a brief summary of your EPO plan. You have a selected an affordable plan with strong coverage for any type of emergency.',
+            attachTo: {
+                element: '.app-group.Health',
+                on: 'right'
+            },
+            buttons: [
+                {
+                    text: 'Back',
+                    action: this.tour.back
+                }, {
+                    text: 'Next',
+                    action: this.tour.next
+                }
+            ]
+        });
+        this.tour.addStep('purchase-Health', {
+            title: 'Payment',
+            text: 'This plan has an initial payment of $264.24 that is paid upon enrollment and $248.80 each month after that',
+            attachTo: {
+                element: '.app-group.Health dl:last-child',
+                on: 'right'
+            },
+            buttons: [
+                {
+                    text: 'Back',
+                    action: this.tour.back
+                }, {
+                    text: 'Next',
+                    action: this.tour.next
+                }
+            ]
+        });
+
+        this.tour.start();
     };
 
     render() {
@@ -117,7 +161,7 @@ class Summary extends Component {
                 </div>
                 <section className="step__application">
                     {samplePlan.map(({ category, carrier, planName, benefits }, i) => (
-                        <div key={i} className="app-group">
+                        <div key={i} className={`app-group ${category}`}>
                             <div className="app-group__category h4">{category}</div>
                             <h3 className="app-group__category-plan mb-xxs">{carrier}</h3>
                             <p className="subtitle mb-base">{planName}</p>
@@ -164,7 +208,7 @@ class Summary extends Component {
                                         <span className="h5">/mo</span>
                                     </div>
                                 </div>
-                                <button className="enrollment__button button button-xlg w-full" onClick={() => this.setState({ isSetupBillingActive: true })}>Start My Guided Review</button>
+                                <button className="enrollment__button button button-xlg w-full" onClick={this.beginGuidedReview}>Start My Guided Review</button>
                                 <button className="button w-full mt-sm">Download My Application</button>
                             </EnrollmentSection>
 

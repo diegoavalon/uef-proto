@@ -7,6 +7,7 @@
 @import "radio-button";
 @import "select";
 @import "EhBanner";
+@import "guided-review";
 
 @import "pages/Eligibility";
 @import "pages/Applicants";
@@ -17,13 +18,14 @@
     --pm-bg: #ebeff2;
     --pm-grey: #d8ded9;
     --pm-bg-dark: #2e3b40;
-    --pm-green100: #d8e46e;
-    --pm-green200: #c8da3e;
-    --pm-green300: #adce45;
-    --pm-green700: #76a54f;
-    --pm-teal300: #88c9ce;
-    --pm-teal500: #46b7b8;
-    --pm-teal900: #456670;
+    --pm-primary100: #d8e46e;
+    --pm-primary200: #c8da3e;
+    --pm-primary300: #adce45;
+    --pm-primary300RGB: 173, 206, 69;
+    --pm-primary700: #76a54f;
+    --pm-secondary300: #88c9ce;
+    --pm-secondary500: #46b7b8;
+    --pm-secondary900: #456670;
 }
 
 html,
