@@ -89,7 +89,7 @@
 }
 
 .eh-check__input:checked + .eh-toggle__inner {
-    background-color: var(--pm-teal500);
+    background-color: var(--pm-secondary500);
     box-shadow: none;
     box-shadow: inset 0 2px 8px 0 rgba(0, 0, 0, .06);
 
@@ -99,7 +99,7 @@
     visibility: visible;
 }
 .eh-check__input:checked + .eh-toggle__inner .eh-toggle__handle {
-    box-shadow: 0 0 0 2px var(--pm-teal500), 0 5px 5px 0 rgba(0,0,0,.08);
+    box-shadow: 0 0 0 2px var(--pm-secondary500), 0 5px 5px 0 rgba(0,0,0,.08);
     left: 100%;
     transform: translateX(-100%);
 }

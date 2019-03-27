@@ -12,9 +12,9 @@
         text-align: center;
         padding: 12px;
         height: 48px;
-        background: var(--pm-green700);
-        background: linear-gradient(to left, var(--pm-green700), var(--pm-green300)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        border-bottom: 1px solid var(--pm-green700);
+        background: var(--pm-primary700);
+        background: linear-gradient(to left, var(--pm-primary700), var(--pm-primary300)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        border-bottom: 1px solid var(--pm-primary700);
         box-shadow: 0 2px 2px 0 rgba(33, 33, 33, .08), 0 3px 1px -2px rgba(33, 33, 33, .08), 0 1px 5px 0 rgba(33, 33, 33, .12);
         svg {
             width: 92px;
@@ -37,7 +37,7 @@
         &.primary {
             background: var(--pm-bg-dark);
             span {
-                color: var(--pm-teal300);
+                color: var(--pm-secondary300);
             }
             &:hover {
                 background: var(--pm-bg-dark);
@@ -46,8 +46,8 @@
             }
         }
         &.secondary {
-            border: 1px solid var(--pm-teal300);
-            color: var(--pm-teal300);
+            border: 1px solid var(--pm-secondary300);
+            color: var(--pm-secondary300);
             span {
                 color: var(--pm-bg-dark);
             }
@@ -78,7 +78,7 @@
         // animation: fadeFromRight 1s var(--cubic-bezier) forwards;
         &:before {
             content: attr(data-step-num);
-            background-color: var(--pm-green100);
+            background-color: var(--pm-primary100);
             display: inline-block;
             font-size: 12px;
             letter-spacing: 0.5px;
@@ -145,7 +145,7 @@ legend {
         top: 25px;
         right: 0;
         width: 40px;
-        border-bottom: 3px dotted var(--pm-green300);
+        border-bottom: 3px dotted var(--pm-primary300);
         height: 3px;
         @media screen and (min-width: 1440px) {
             right: 100%;
@@ -180,7 +180,7 @@ legend {
     }
     @media screen and (min-width: 200px) and (max-width: 799px) {
         .eh-text__group .eh-text__input:focus::-webkit-input-placeholder {
-            color: var(--pm-teal300);
+            color: var(--pm-secondary300);
         }
         .eh-text__label {
             color: var(--pm-bg);
@@ -199,13 +199,13 @@ legend {
                 transition-delay: 1s !important;
             }
             .button.primary {
-                background-color: var(--pm-teal500);
+                background-color: var(--pm-secondary500);
             }
             .button span {
                 color: var(--pm-bg-dark);
             }
             .button.secondary {
-                color: var(--pm-teal300);
+                color: var(--pm-secondary300);
                 border: none;
                 padding-left: 0;
                 &::before {
@@ -236,7 +236,7 @@ legend {
                 background: var(--pm-white);
             }
             &:before {
-                border-bottom: 3px dotted var(--pm-teal300);
+                border-bottom: 3px dotted var(--pm-secondary300);
             }
         }
         .eh-text__label {

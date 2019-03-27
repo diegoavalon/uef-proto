@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .modal.Summary {
     .step__headline {
         padding-bottom: 20px;
@@ -46,12 +50,15 @@
             color: var(--pm-bg-dark);
             padding-bottom: 80px;
             max-width: 500px;
+            opacity: 1;
+            transition: all .5s var(--cubic-bezier);
             .wrapper {
                 position: sticky;
                 top: -120px;
                 max-height: initial !important;
                 padding: 0;
                 margin: 0;
+                overflow: auto;
             }
         }
         .step__application {
@@ -63,16 +70,35 @@
             padding-top: 170px;
         }
     }
+    &.full-mode {
+        .step__body {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .step__body .wrapper {
+            overflow: auto;
+        }
+        .cost__price {
+            margin-bottom: 0 !important;
+        }
+        .enrollment__section + .enrollment__section {
+            margin-top: 12px;
+        }
+    }
 }
 
 .app-group {
     position: relative;
-    padding: 20px;
     width: 100%;
     background-color: var(--pm-bg);
     border-bottom: 1px solid var(--pm-white);
+    padding-top: 20px;
+    padding-bottom: 0;
     @media screen and (min-width: 800px) {
-        padding: 32px 40px 40px;
+        padding-top: 32px;
+        padding-bottom: 20px;
     }
     &:first-child {
         border-radius: 5px 5px 0 0;
@@ -108,7 +134,8 @@
         position: relative;
         margin: 0;
         & + dl {
-            margin-top: 40px;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
         dt {
             letter-spacing: 0.5px;
@@ -126,13 +153,14 @@
             &:before {
                 content: '';
                 position: absolute;
-                right: 0;
+                left: 50%;
                 bottom: 4px;
-                width: 100%;
+                width: 85%;
                 height: 0px;
                 border-bottom: 2px dotted var(--pm-bg-dark);
-                z-index: 0;
+                transform: translateX(-50%);
                 transition: all .3s var(--cubic-bezier);
+                z-index: 0;
             }
         } 
         span {
@@ -149,6 +177,17 @@
                 padding: 0 0 0 8px;
             }
         }                    
+    }
+    &__category-plan,
+    &__category-carrier,
+    dd,
+    dt {
+        padding-left: 20px;
+        padding-right: 20px;
+        @media screen and (min-width: 800px) {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
     }
 }
 
@@ -174,7 +213,7 @@
                 width: 100%;
                 height: 1px;
                 background: none;
-                border: 1px dotted var(--pm-teal500);
+                border: 1px dotted var(--pm-secondary500);
                 z-index: -1;
             }
         }
@@ -183,14 +222,25 @@
         }
     }
     &__button {
-        background: var(--pm-teal500);
+        background: var(--pm-secondary500);
         color: var(--pm-white);
     }
-    .button:not(.enrollment__button) {
-        display: none;
-    }
     fieldset .form-group:last-child {
+        margin-bottom: 28px;
+    }
+    fieldset .form-group.separator {
         margin-bottom: 60px;
+    }
+    .form-group > label {
+        display: inline;
+        position: relative;
+        letter-spacing: .5px;
+        z-index: 10;
+        font-weight: 600;
+        padding: 4px 8px;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: calc(14rem/16);
     }
     @media screen and (min-width: 1140px) {
         &__section-title {
@@ -209,3 +259,10 @@
         }
     }
 }
+
+body.shepherd-active .modal.Summary .step__body {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: .5s all .5s var(--cubic-bezier);
+}
+
