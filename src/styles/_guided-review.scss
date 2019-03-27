@@ -24,43 +24,64 @@
 	z-index: 9998
 }
 
-.tippy-arrow:before {
-	content: '';
-    position: absolute;
-    right: 4px;
-    top: -5px;
-	margin: auto;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background: var(--pm-primary300);
-	font-size: 18px;
-	animation: 1.6s playShadow ease-out infinite;
-	display: flex;
-	cursor: pointer;
-	text-decoration: none;
+.shepherd-enabled {
+    box-shadow: 0 24px 38px 3px rgba(33, 33, 33, .08), 0 9px 46px 8px rgba(33, 33, 33, .08), 0 11px 15px -7px rgba(33, 33, 33, .12);
+    border-radius: none;
 }
 
-.tippy-arrow:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	border-radius: 50%;
-	z-index: -1;
-	pointer-events: none;
-	transition: 0.35s;
+.tippy-tooltip {
+    .tippy-arrow:before {
+        content: '';
+        position: absolute;
+        margin: auto;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--pm-secondary500);
+        font-size: 18px;
+        animation: 1.6s playShadow ease-out infinite;
+        display: flex;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .tippy-arrow:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        z-index: -1;
+        pointer-events: none;
+        transition: 0.35s;
+    }
+    &[x-placement="right"] .tippy-arrow:before {
+        right: 4px;
+        top: -5px;
+    }
+    &[x-placement="bottom"] {
+        .tippy-arrow {
+            border-bottom-color: var(--pm-bg-dark) !important;
+        }
+        .tippy-arrow:before {
+            right: -5px;
+            top: -14px;
+        }
+    }
+    &[x-placement="top"] .tippy-arrow:before {
+        right: -5px;
+        top: 4px;
+    }
 }
 
 @keyframes playShadow {
 	0% {
-		box-shadow: 0 0 0 0px rgba(var(--pm-primary300RGB), 0.3), 0 0 0 0px rgba(var(--pm-primary300RGB), 0.2);
+		box-shadow: 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.3), 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.2);
 		transform: scale(1);
 	}
 	18% {
-		box-shadow: 0 0 0 0px rgba(var(--pm-primary300RGB), 0.3), 0 0 0 0px rgba(var(--pm-primary300RGB), 0.2);
+		box-shadow: 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.3), 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.2);
 	}
 	35% {
 		transform: scale(1.08);
@@ -69,7 +90,7 @@
 		transform: scale(0.96);
 	}
 	100% {
-		box-shadow: 0 0 0 8px rgba(var(--pm-primary300RGB), 0), 0 0 0 12px rgba(var(--pm-primary300RGB), 0);
+		box-shadow: 0 0 0 8px rgba(var(--pm-secondary500RGB), 0), 0 0 0 12px rgba(var(--pm-secondary500RGB), 0);
 		transform: scale(1);
 	}
 }
@@ -170,12 +191,16 @@
 }
 
 .shepherd-element {
-    box-shadow: 0 16px 24px 2px rgba(33, 33, 33, .08), 0 6px 30px 5px rgba(33, 33, 33, .08), 0 8px 10px -5px rgba(33, 33, 33, .12);
+    box-shadow: 0 24px 38px 3px rgba(33, 33, 33, .08), 0 9px 46px 8px rgba(33, 33, 33, .08), 0 11px 15px -7px rgba(33, 33, 33, .12);
 }
 
 .shepherd-element.shepherd-has-title .shepherd-content header {
-	background: var(--pm-grey);
-	padding: 1em
+    background: var(--pm-bg-dark);
+    padding: 12px 20px;
+    @media screen and (min-width: 800px) {
+        background: var(--pm-grey);
+        color: var(--pm-bg-dark);
+    }
 }
 
 .shepherd-element .shepherd-content {
@@ -211,9 +236,12 @@
 }
 
 .shepherd-element .shepherd-content header .shepherd-title {
-	color: var(--pm-bg-dark);
-	display: flex;
-	flex: 1 0 auto;
+    color: var(--pm-white);
+    display: flex;
+    flex: 1 0 auto;
+    @media screen and (min-width: 800px) {
+        color: var(--pm-bg-dark);
+    }
 }
 
 .shepherd-element .shepherd-content header .shepherd-cancel-link {
@@ -290,7 +318,7 @@
 	vertical-align: middle;
 	*vertical-align: auto;
 	*zoom: 1;
-	background: var(--pm-secondary300);
+	background: var(--pm-primary300);
 	border: 0;
 	border-radius: 3px;
 	color: hsla(0, 0%, 100%, .75);
@@ -305,7 +333,7 @@
 }
 
 .shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button:hover {
-	background: var(--pm-green200);
+	background: var(--pm-primary200);
 }
 
 .shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button.shepherd-button-secondary {

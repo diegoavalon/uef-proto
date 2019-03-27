@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import Shepherd from 'shepherd.js';
+import withSizes from 'react-sizes';
 
 import Step from '../Step/Step';
 import Form from '../../Form';
@@ -9,6 +10,8 @@ import { processForm, log } from '../../utilities';
 import { originalSummarySchema, originalSummaryUISchema } from './config';
 
 const initialState = processForm(originalSummarySchema, originalSummaryUISchema, originalSummarySchema, originalSummaryUISchema);
+
+initialState.formData = {sameAddress: true};
 
 const samplePlan = [{
     category: "Health",
@@ -84,6 +87,7 @@ const EnrollmentSection = ({ title, children }) => {
 class Summary extends Component {
     state = {
         ...initialState,
+        isReadyToEnroll: false,
         isFormComplete: false,
         isSetupBillingActive: false,
         isEnrollmentActive: false
@@ -106,22 +110,49 @@ class Summary extends Component {
         console.log('This is the form info we will submit', formData);
     };
 
+    smoothScroll = () => {
+        const targetElTop = document.querySelector('.shepherd-enabled').getBoundingClientRect().top;
+
+        window.scroll({
+            top: targetElTop - 40, 
+            left: 0, 
+            behavior: 'smooth'
+        });
+    }
+
     beginGuidedReview = () => {
+        const tooltipPos = this.props.isMobile ? 'bottom' : 'right';
+
         this.tour = new Shepherd.Tour({
-            defaultStepOptions: {
-              classes: 'guided-review12',
-            //   scrollTo: true
-            },
             useModalOverlay: true
         });
 
-        this.tour.addStep('purchase-Health', {
+        this.tour.addStep('step-one', {
             title: 'Your Health Plan',
             text: 'Here is a brief summary of your EPO plan. You have a selected an affordable plan with strong coverage for any type of emergency.',
             attachTo: {
                 element: '.app-group.Health',
-                on: 'right'
+                on: tooltipPos
             },
+            scrollTo: true,
+            scrollToHandler: this.smoothScroll,
+            buttons: [{
+                text: 'Next',
+                action: this.tour.next
+            }]
+        });
+        this.tour.addStep('purchase-Health--cost', {
+            title: 'Payment',
+            text: `
+                <p class="mb-sm">This plan has an <b>initial payment</b> of <b>$264.24</b> due upon enrollment.</p>
+                <p>A monthly payment of <b>$248.80</b> is due <b>every 30 days</b> from the day of enrollment</p>
+            `,
+            attachTo: {
+                element: '.app-group.Health dl:last-child',
+                on: tooltipPos
+            },
+            scrollTo: true,
+            scrollToHandler: this.smoothScroll,
             buttons: [
                 {
                     text: 'Back',
@@ -132,13 +163,34 @@ class Summary extends Component {
                 }
             ]
         });
-        this.tour.addStep('purchase-Health', {
-            title: 'Payment',
-            text: 'This plan has an initial payment of $264.24 that is paid upon enrollment and $248.80 each month after that',
+        this.tour.addStep('purchase-Dental', {
+            title: 'Your Dental Plan',
+            text: 'Here is a brief summary of your Dental plan.',
             attachTo: {
-                element: '.app-group.Health dl:last-child',
-                on: 'right'
+                element: '.app-group.Dental',
+                on: tooltipPos
             },
+            scrollTo: true,
+            scrollToHandler: this.smoothScroll,
+            buttons: [
+                {
+                    text: 'Back',
+                    action: this.tour.back
+                }, {
+                    text: 'Next',
+                    action: this.tour.next
+                }
+            ]
+        });
+        this.tour.addStep('last-step', {
+            title: 'Your Vision Plan',
+            text: 'Here is a brief summary of your Vision plan.',
+            attachTo: {
+                element: '.app-group.Vision',
+                on: tooltipPos
+            },
+            scrollTo: true,
+            scrollToHandler: this.smoothScroll,
             buttons: [
                 {
                     text: 'Back',
@@ -151,7 +203,16 @@ class Summary extends Component {
         });
 
         this.tour.start();
+        this.setState({isReadyToEnroll: true});
     };
+
+    enterEnrollmentState = (event) => {
+        event.target.style.display = 'none';
+        this.setState({isSetupBillingActive: true});
+
+
+        
+    }
 
     render() {
         const applicationSummary = (
@@ -163,8 +224,8 @@ class Summary extends Component {
                     {samplePlan.map(({ category, carrier, planName, benefits }, i) => (
                         <div key={i} className={`app-group ${category}`}>
                             <div className="app-group__category h4">{category}</div>
-                            <h3 className="app-group__category-plan mb-xxs">{carrier}</h3>
-                            <p className="subtitle mb-base">{planName}</p>
+                            <h3 className="app-group__category-carrier mb-xxs">{carrier}</h3>
+                            <p className="app-group__category-plan subtitle mb-base">{planName}</p>
                             {benefits.map((benefit, i) => {
                                 return (
                                     <dl key={i}>
@@ -189,14 +250,12 @@ class Summary extends Component {
 
         return (
             <Step
-                classNames="Summary"
+                classNames={this.props.isMobile && this.state.isSetupBillingActive ? 'Summary full-mode' : 'Summary'}
                 stepNum="Last Step"
                 title="Just need your review."
                 subtitle="Here is your customized health plan"
                 applicationSummary={applicationSummary}
             >
-                
-
                 <div className="step__sidebar w-full">
                     <div className="enrollment">
                         <div className="cost">
@@ -208,8 +267,12 @@ class Summary extends Component {
                                         <span className="h5">/mo</span>
                                     </div>
                                 </div>
-                                <button className="enrollment__button button button-xlg w-full" onClick={this.beginGuidedReview}>Start My Guided Review</button>
-                                <button className="button w-full mt-sm">Download My Application</button>
+                                {this.state.isReadyToEnroll ? <div>
+                                        <button className="enrollment__button button button-xlg w-full" onClick={this.enterEnrollmentState.bind(this)}>I'm Ready to Enroll</button>
+                                        <button className="button w-full mt-sm">Download My Application</button>
+                                    </div>    
+                                :  <button className="enrollment__button button button-xlg w-full" onClick={this.beginGuidedReview.bind(this)}>Start My Guided Review</button>
+                                }
                             </EnrollmentSection>
 
                             <CSSTransition
@@ -219,6 +282,7 @@ class Summary extends Component {
                                 unmountOnExit
                             >
                                 <EnrollmentSection title="Billing & Enrollment">
+
                                 <Form schema={this.state.schema}
                                     uiSchema={this.state.uiSchema}
                                     formData={this.state.formData}
@@ -246,12 +310,14 @@ class Summary extends Component {
                             </CSSTransition>
                         </div>
                     </div>
-                </div>
-                    
+                </div> 
             </Step>                
-            
         );
     }
 }
 
-export default Summary;
+const mapSizesToProps = ({ width }) => ({
+    isMobile: width < 800,
+});
+
+export default withSizes(mapSizesToProps)(Summary);
