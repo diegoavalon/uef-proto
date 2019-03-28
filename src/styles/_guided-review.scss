@@ -63,6 +63,9 @@
     &[x-placement="bottom"] {
         .tippy-arrow {
             border-bottom-color: var(--pm-bg-dark) !important;
+            @media screen and (min-width: 800px) {
+                border-bottom-color: var(--pm-grey) !important;
+            }
         }
         .tippy-arrow:before {
             right: -5px;
@@ -73,30 +76,6 @@
         right: -5px;
         top: 4px;
     }
-}
-
-@keyframes playShadow {
-	0% {
-		box-shadow: 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.3), 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.2);
-		transform: scale(1);
-	}
-	18% {
-		box-shadow: 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.3), 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.2);
-	}
-	35% {
-		transform: scale(1.08);
-	}
-	76% {
-		transform: scale(0.96);
-	}
-	100% {
-		box-shadow: 0 0 0 8px rgba(var(--pm-secondary500RGB), 0), 0 0 0 12px rgba(var(--pm-secondary500RGB), 0);
-		transform: scale(1);
-	}
-}
-
-.shepherd-active {
-    // overflow: hidden;
 }
 
 .shepherd-active.shepherd-modal-is-visible :not(.shepherd-target) {
@@ -297,6 +276,8 @@
 }
 
 .shepherd-element .shepherd-content footer .shepherd-buttons {
+    display: flex;
+    justify-content: space-between;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -309,31 +290,53 @@
 }
 
 .shepherd-element .shepherd-content footer .shepherd-buttons li:last-child {
-	margin-right: 0
+    margin-right: 0;
+    margin-left: auto;
 }
 
 .shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button {
 	display: inline-block;
-	*display: inline;
-	vertical-align: middle;
-	*vertical-align: auto;
-	*zoom: 1;
-	background: var(--pm-primary300);
-	border: 0;
-	border-radius: 3px;
-	color: hsla(0, 0%, 100%, .75);
-	cursor: pointer;
-	font-family: inherit;
-	font-size: .8em;
-	letter-spacing: .1em;
-	line-height: 1em;
-	padding: .75em 2em;
-	text-transform: uppercase;
-	transition: all .5s ease
+    padding: 0 16px;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    transition: 240ms var(--cubic-bezier);
+    text-align: center;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+    cursor: pointer;
+    background: var(--pm-secondary500);
+    color: var(--pm-white);
+    border: 0 solid transparent;
 }
 
-.shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button:hover {
-	background: var(--pm-primary200);
+.shepherd-button:hover {
+    text-decoration: none;
+    box-shadow: 0 2px 2px 0 rgba(33, 33, 33, .08), 0 3px 1px -2px rgba(33, 33, 33, .08), 0 1px 5px 0 rgba(33, 33, 33, .12); 
+    transform: translateY(-4px);
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons li:first-child:not(:last-child) .shepherd-button {
+    color: var(--pm-bg-dark);
+    opacity: 0.5;
+    background: transparent;
+    &:hover {
+        opacity: 1;
+        box-shadow: none;
+    }
+}
+
+.shepherd-element .shepherd-content footer .shepherd-buttons li:last-child:not(:first-child) .shepherd-button:hover {
+    background: rgba(var(--pm-secondary500RGB), 0.85);
+    
 }
 
 .shepherd-element .shepherd-content footer .shepherd-buttons li .shepherd-button.shepherd-button-secondary {

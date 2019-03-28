@@ -136,10 +136,12 @@ class Summary extends Component {
             },
             scrollTo: true,
             scrollToHandler: this.smoothScroll,
-            buttons: [{
-                text: 'Next',
-                action: this.tour.next
-            }]
+            buttons: [
+                {
+                    text: "Great 👍",
+                    action: this.tour.next
+                }
+            ]
         });
         this.tour.addStep('purchase-Health--cost', {
             title: 'Payment',
@@ -155,10 +157,10 @@ class Summary extends Component {
             scrollToHandler: this.smoothScroll,
             buttons: [
                 {
-                    text: 'Back',
+                    text: 'Previous',
                     action: this.tour.back
                 }, {
-                    text: 'Next',
+                    text: "Got it!",
                     action: this.tour.next
                 }
             ]
@@ -174,15 +176,15 @@ class Summary extends Component {
             scrollToHandler: this.smoothScroll,
             buttons: [
                 {
-                    text: 'Back',
+                    text: 'Previous',
                     action: this.tour.back
                 }, {
-                    text: 'Next',
+                    text: "Looks good",
                     action: this.tour.next
                 }
             ]
         });
-        this.tour.addStep('last-step', {
+        this.tour.addStep('purchase-Vision', {
             title: 'Your Vision Plan',
             text: 'Here is a brief summary of your Vision plan.',
             attachTo: {
@@ -193,10 +195,38 @@ class Summary extends Component {
             scrollToHandler: this.smoothScroll,
             buttons: [
                 {
-                    text: 'Back',
+                    text: 'Previous',
                     action: this.tour.back
                 }, {
-                    text: 'Next',
+                    text: "Perfect!",
+                    action: this.tour.next
+                }
+            ]
+        });
+        this.tour.addStep('last-step', {
+            title: 'Enrollment',
+            text: `
+                <p class="mb-sm">When ready, &nbsp;just tap "<b>I'm Ready to Enroll</b>".</p>
+                <p>Tap "Download My Application" for a copy.</p>
+            `,
+            attachTo: {
+                element: '.enrollment',
+                on: "top"
+            },
+            scrollTo: true,
+            scrollToHandler: () => {
+                window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            },
+            buttons: [
+                {
+                    text: 'Previous',
+                    action: this.tour.back
+                }, {
+                    text: "Close Review",
                     action: this.tour.next
                 }
             ]
@@ -209,9 +239,6 @@ class Summary extends Component {
     enterEnrollmentState = (event) => {
         event.target.style.display = 'none';
         this.setState({isSetupBillingActive: true});
-
-
-        
     }
 
     render() {
@@ -233,9 +260,9 @@ class Summary extends Component {
                                         {benefit.list.map((item, i) => {
                                             const textArr = item.split(':');
                                             return (
-                                                <dd key={i}>
+                                                <dd key={i} className="flex justify-between flex-wrap">
                                                     <span>{textArr[0]}</span>
-                                                    <span className="font-semibold">{textArr[1]}</span>
+                                                    <span className="ml-auto font-semibold">{textArr[1]}</span>
                                                 </dd>
                                             );
                                         })}
@@ -257,19 +284,24 @@ class Summary extends Component {
                 applicationSummary={applicationSummary}
             >
                 <div className="step__sidebar w-full">
-                    <div className="enrollment">
+                    <div className="enrollment" ref={el => this.sidebarEl = el}>
                         <div className="cost">
                             <EnrollmentSection title="My Health Plan">
-                                <div className="cost__price flex justify-around items-end pt-sm" style={{ marginBottom: '20px' }}>
+                                <div className="cost__price flex justify-around items-end pt-sm" style={{ marginBottom: '24px' }}>
                                     <span className="h3">Total</span>
                                     <div>
-                                        <span className="h1 relative" style={{ top: '2px' }}>$315.76</span>
-                                        <span className="h5">/mo</span>
+                                        <span className="h1 relative" style={{ top: '7px' }}>$315.76</span>
+                                        <span className="h5 relative" style={{ top: '6px', right: '-2px' }}>/mo</span>
                                     </div>
                                 </div>
                                 {this.state.isReadyToEnroll ? <div>
-                                        <button className="enrollment__button button button-xlg w-full" onClick={this.enterEnrollmentState.bind(this)}>I'm Ready to Enroll</button>
-                                        <button className="button w-full mt-sm">Download My Application</button>
+                                        <button className="enrollment__button button button-xlg w-full pulse" onClick={this.enterEnrollmentState.bind(this)}>I'm Ready to Enroll</button>
+                                        <button className="button w-full mt-sm flex justify-center items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 100 100">
+                                                <path d="M76.25 57.94263c2.07375 0 3.75 1.66768 3.75 3.72249v18.6124C80 82.33232 78.32375 84 76.25 84h-52.5C21.67625 84 20 82.33233 20 80.27752v-18.6124c0-2.05481 1.67625-3.72249 3.75-3.72249s3.75 1.66768 3.75 3.72249v14.88992h45V61.66512c0-2.05481 1.67625-3.72249 3.75-3.72249zM37.65125 44.14805L46.25 52.6837V20.72248C46.25 18.66768 47.92625 17 50 17s3.75 1.66767 3.75 3.72248V52.6837l8.59875-8.53565C63.08 43.42217 64.04 43.05737 65 43.05737c.96 0 1.92.3648 2.65125 1.09068 1.46625 1.4555 1.46625 3.8081 0 5.26359L52.655 64.29784c-.34875.3462-.76125.61793-1.2225.80778-.915.37597-1.95.37597-2.865 0-.46125-.18985-.87375-.46159-1.2225-.80778l-14.99625-14.8862c-1.46625-1.45549-1.46625-3.8081 0-5.26359 1.46625-1.45549 3.83625-1.45549 5.3025 0z" fill="currentColor" fillRule="evenodd"/>
+                                            </svg>
+                                            <span className="ml-xs">Download My Application</span>
+                                        </button>
                                     </div>    
                                 :  <button className="enrollment__button button button-xlg w-full" onClick={this.beginGuidedReview.bind(this)}>Start My Guided Review</button>
                                 }
