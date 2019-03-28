@@ -13,6 +13,12 @@ html {
         max-width: 500px;
         margin: 0 auto;
     }
+    @media screen and (min-width: 200px) and (max-width: 1139px) {
+        .step__body .wrapper {
+            padding: 0;
+            margin: 0;  
+        }
+    }
     @media screen and (min-width: 800px) and (max-width: 1139px) {
         .eh-text__label {
             color: var(--pm-bg);
@@ -49,25 +55,24 @@ html {
             padding: 0;
             color: var(--pm-bg-dark);
             padding-bottom: 80px;
-            max-width: 500px;
+            max-width: 520px;
             opacity: 1;
             transition: all .5s var(--cubic-bezier);
             .wrapper {
-                position: sticky;
-                top: -120px;
                 max-height: initial !important;
+                height: 100%;
                 padding: 0;
                 margin: 0;
-                overflow: auto;
             }
         }
         .step__application {
             padding-bottom: 0;
         }
         .step__sidebar {
-            padding-left: 60px;
-            padding-right: 60px;
-            padding-top: 170px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 94px;
+            height: 100%;
         }
     }
     &.full-mode {
@@ -153,9 +158,9 @@ html {
             &:before {
                 content: '';
                 position: absolute;
-                left: 50%;
+                left: 52%;
                 bottom: 4px;
-                width: 85%;
+                width: 83%;
                 height: 0px;
                 border-bottom: 2px dotted var(--pm-bg-dark);
                 transform: translateX(-50%);
@@ -195,6 +200,13 @@ html {
     position: sticky;
     top: 40px;
     &__section {
+        padding: 20px;
+        @media screen and (min-width: 800px) {
+            padding: 40px;
+        }
+        &:nth-child(2n) {
+            margin-top: -28px !important;
+        }
         &-title {
             position: relative;
             text-align: center;
@@ -224,23 +236,65 @@ html {
     &__button {
         background: var(--pm-secondary500);
         color: var(--pm-white);
+        position: relative;
+        &.pulse:before,
+        &.pulse:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: inherit;
+            border-radius: inherit;
+            transition: opacity .3s, transform .3s;
+            animation: pulse-animation 4s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+            z-index: -1;
+        }
+        &.pulse:after {
+            animation-delay: .08s;
+        }
     }
     fieldset .form-group:last-child {
         margin-bottom: 28px;
     }
     fieldset .form-group.separator {
-        margin-bottom: 60px;
+        margin-bottom: 52px;
     }
     .form-group > label {
-        display: inline;
+        display: inline-block;
         position: relative;
         letter-spacing: .5px;
         z-index: 10;
         font-weight: 600;
-        padding: 4px 8px;
         text-transform: uppercase;
         text-align: center;
         font-size: calc(14rem/16);
+        width: 100%;
+        margin-bottom: 12px;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 1px;
+            background: none;
+            border: 1px dotted var(--pm-secondary500);
+            z-index: -2;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 132px;
+            height: 12px;
+            background: var(--pm-bg-dark);
+            z-index: -1;
+        }
     }
     @media screen and (min-width: 1140px) {
         &__section-title {
@@ -248,21 +302,72 @@ html {
                 background: var(--pm-white);
             }
             &:before {
-                border-color: var(--pm-bg-dark);
+                border-color: var(--pm-secondary500);
+            }
+        }
+        .form-group > label {
+            &:before {
+                border-color: var(--pm-secondary500);
+            }
+            &::after {
+                background: var(--pm-white);
             }
         }
         &__section-body {
-            padding: 12px 0 48px;
+            padding: 2px 0 0px;
         }
         .button:not(.enrollment__button) {
-            display: block;
+            display: flex;
         }
     }
+}
+
+@keyframes pulse-animation {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1.05)
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.05)
+    }
+}
+
+@keyframes playShadow {
+	0% {
+		box-shadow: 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.3), 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.2);
+		transform: scale(1);
+	}
+	18% {
+		box-shadow: 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.3), 0 0 0 0px rgba(var(--pm-secondary500RGB), 0.2);
+	}
+	35% {
+		transform: scale(1.08);
+	}
+	76% {
+		transform: scale(0.96);
+	}
+	100% {
+		box-shadow: 0 0 0 8px rgba(var(--pm-secondary500RGB), 0), 0 0 0 12px rgba(var(--pm-secondary500RGB), 0);
+		transform: scale(1);
+	}
 }
 
 body.shepherd-active .modal.Summary .step__body {
     transform: translateY(100%);
     opacity: 0;
-    transition: .5s all .5s var(--cubic-bezier);
+    transition: all .5s var(--cubic-bezier);
+}
+
+body[data-shepherd-step="last-step"] .modal.Summary .step__body {
+    opacity: 1;
+    transform: none;
 }
 
